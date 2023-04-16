@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>다양한 입력 표현</h3>
+    <form action="next.html">
+
+        ID : <input type="text" name="id"> <br />
+        PW &nbsp;&nbsp;&nbsp;&nbsp;: <input type="password" name="pw"> <br />
+        <!-- input:checkbox[name='quest1'] -->
+        <!-- checkbox : 같은 이름이여도 둘다 선택 가능 -->
+        <input type="checkbox" name="quest1" id="">1번<br />
+        <input type="checkbox" name="quest1" id="">2번<br />
+        
+        <!-- radio : 같은 이름이면 둘중 하나만 선택 가능 -->
+    <input type="radio" name="gender" id="">남
+    <input type="radio" name="gender" id="">여<br />
+    
+    <!-- radio : 다른 이름이면 둘다 선택 가능 -->
+    <input type="radio" name="gender1" id="">남
+    <input type="radio" name="gender2" id="">여<br />
+    
+    생년월일 : <input type="date" name="time" id=""><br />
+    
+    점심메뉴
+    <select name="menu">
+        <option value="김밥">김밥</option>
+        <option value="라면">라면</option>
+        <option value="비빔밥">비빔밥</option>
+        <option value="짜장면">짜장면</option>
+        <option value="짬뽕">짬뽕</option>
+    </select>
+    <input type="submit" value="제출">
+    <input type="reset" value="초기화">
+</form>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game3.html</title>
+    <style>
+        canvas { background-color: #aaaaaa;}
+    </style>
+    <script>
+        var bg = new Image();
+        bg.src = "../images/bg.jpg";
+        var rabbit1 = new Image();
+        var rabbit2 = new Image();
+        // 토끼좌표
+        var rabbitX = 200;
+        var rabbitY = 200;
+
+        rabbit1.src = "../images/rabbit1.png";
+        rabbit2.src = "../images/rabbit2.png";
+        var ctx;
+        var counter =0;
+
+        // 배경음악 객체
+
+        var bgMusic = new Audio("../sounds/backsound.mp3");
+        
+        
+        
+        
+        window.onload=function(){
+            var canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+            // 붓 준비완료
+            // drawScreen();
+            // window.setTimeout(drawScreen,30);
+            window.setInterval(drawScreen, 500);
+        }
+        function drawScreen(){
+            counter ++;
+            // console.log(counter);
+            
+            ctx.drawImage(bg,0,0,800,600); // 배경 
+            if(counter % 2 == 1){
+                ctx.drawImage(rabbit1,rabbitX,rabbitY,100,100); // 토끼1
+            }
+            
+            else{
+                ctx.drawImage(rabbit2,rabbitX,rabbitY,100,100); // 토끼1
+            }
+            
+            
+            
+        }
+        function moveRabbit(pos){
+            console.log("test");
+            console.log(pos);
+            if(pos == 8)rabbitY -=7;
+            else if(pos == 4)rabbitX -=7;
+            else if(pos == 6)rabbitX +=7;
+        else if(pos == 2)rabbitY +=7;
+        
+    }
+    function startMusic(){
+        console.log("배경음악 시작 플레이중");
+        bgMusic.play();
+    }
+    function stopMusic(){
+        console.log("배경음악 중지 ");
+        bgMusic.currentTime=0; // 처음으로 돌림
+        bgMusic.pause(); // 일시중지
+    }
+
+    
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800px" height="600px"></canvas><br>
+    <input type="button" value="배경음악시작" onclick="startMusic()">
+    <input type="button" value="배경음악중지" onclick="stopMusic()"><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="▲" onclick="moveRabbit(8);"><br>
+    <input type="button" value="◀" onclick="moveRabbit(4);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="▶" onclick="moveRabbit(6);"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="▼" onclick="moveRabbit(2);">
+    
+</body>
+</html>

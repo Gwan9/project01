@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript10.html</title>
+    <script>
+        // 전송 버튼을 클릭하면 cal() 호출
+
+        // cal() 함수를 정의하고
+        // 함수 호출 시 콘솔에 hello 메세지 출력
+        function cal(){
+            console.log("Hello")
+
+            // javascript 는 모든 요소를 객체 <--
+            var txtEle = document.getElementById("txt");
+            console.log(txtEle);
+            console.dir(txtEle); //★☆★☆★☆★☆ 디렉토리 확인 ★☆★☆★☆★☆
+            console.log(txtEle.value);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="txt" >
+    <input type="button" value="전송" onclick="cal()">
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript30.html</title>
+    <script>
+        // 1. 함수만들기
+        function showNowTime(){
+            // 2. 간단한 메세지 출력
+            console.log("TEST");
+            // 3. 날짜 객체
+            var now = new Date();
+            console.log(now);
+
+            var year = now.getFullYear();
+            console.log(year);
+
+            var month = now.getMonth()+1;
+            console.log(month);
+
+            var date = now.getDate();
+            console.log(date);
+
+            var hours = now.getHours();
+            console.log(hours);
+            
+            var minute = now.getMinutes();
+            console.log(minute);
+            // 4. 오늘 날짜를 메세지 형태로
+            var time = year + "년 " + month + "월 " + date + "일 " + hours + "시 " + minute + "분";
+            console.log(time);
+            // 5. h2태그로 오늘 날짜 출력되도록 쓰기
+            var nowtime = document.getElementById("box1");
+
+            nowtime.innerHTML = "<h2>"+time+"</h2>";
+
+            // window.setTimeout(함수명, 시간)  
+            window.setTimeout(showNowTime,1000);
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <div><input type="button" value="현재시간" onclick="showNowTime();"></div>
+</body>
+</html>

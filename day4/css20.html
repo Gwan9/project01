@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css20.html</title>
+    <style>
+        div.content{
+            /* 감추기 display:none; */
+            position: absolute;
+            display: none;
+            background-color: #cccccc;
+            padding: 10px 20px;
+        }
+        div.dropdown{
+            display: inline;
+        }
+        .dropdown:hover .content{
+            display: blcok;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <span>마우스올려놓기</span>
+        <div class="content">
+            <p>Hello World!!</p>
+        </div>
+    </div>
+
+</body>
+</html>

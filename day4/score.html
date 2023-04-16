@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var scoreEle = document.getElementById("score");
+        
+        var score = scoreEle.value;
+        if(score >= 90){
+                var result = score;
+                console.log(result);
+            }
+            else {
+                // var result = "불합격";
+            }
+            
+            var no3 = eval(result);
+            
+            var resultEle = document.ge15tElementById("result");
+
+            resultEle.value=no3;
+
+
+        
+    </script>
+</head>
+<body>
+    
+    <input type="text" name="" id="score">
+    <input type="text" name="" id="result">
+    <input type="button" name="" id="check">
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript24.html</title>
+    <script>
+        function checkform(x){
+            // console.log(x);
+            // console.dir(x);
+            console.dir(x.form);
+            console.log(x.form[0]);
+            console.log(x.form[0].value);
+
+
+            // 패스워드 입력값을 콘솔에 출력
+            console.log(x.form[1].value);
+            console.log(x.form[2].value);
+            console.log(x.form[3].value);
+            
+
+
+            // 입력한 값 콘솔에 출력
+
+            var id = x.form[0].value
+            var pw = x.form[1].value
+            var pw2 = x.form[2].value
+            var email = x.form[3].value
+            
+            console.log(id);
+            console.log(pw);
+            console.log(pw2);
+            console.log(email);
+            
+            
+           
+
+            if(id==""){
+                alert("아이디를 입력하세요");
+                x.form[0].focus(); // 커서가 x.form[0]으로 이동
+                //실행중인 함수 중단
+                return ;
+            }else if(pw==""){
+                alert("비밀번호를 입력하세요");
+                
+                return ;
+            }else if(pw2==""){
+                alert("비밀번호확인을 입력하세요");
+                x.form[2].focus();
+                return ;
+            }else if(email==""){
+                alert("이메일을 입력하세요");
+                x.form[3].focus();
+                return ;
+            }else if(pw.length <= 7){
+                alert("패스워드의 길이는 8자 이상이어야 합니다.")
+                x.form[1].focus();
+                return ;
+            }else if(pw != pw2){
+                alert("비밀번호가 일치하지 않습니다.")
+                //기존 값 지우고 다시 입력
+                x.form[1].value = "";
+                x.form[2].value = "";
+                x.form[1].focus();
+                
+                return ;
+            }else if(email.indexOf('@') == -1){ // indexOf(문자)가 존재하지 않으면 -1로 표기
+                alert("이메일형식으로 작성하세요.")
+                
+                x.form[3].focus();
+                return ;
+            }
+            // 조건 검사를 통과했다면
+            // next.html에 전송
+            // get 방식 : 주소창으로 전달 // 쿼리스트링
+            // post 방식 : body로 전달
+            // action
+            x.form.action="next.html";
+            // method : get방식
+            x.form.method="get";
+            //제출
+            x.form.submit();
+        }
+    </script>
+</head>
+<body>
+    <form action="next.html" method="get">
+        
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="useridid" id="id"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="text" name="userpwpw" id="pw"></td>
+            </tr>
+            <tr>
+                <td>비밀번호확인</td>
+                <td><input type="text" name="userrepw" id="pw2"></td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td><input type="button" value="전송1" onclick="checkform(this);"></td>
+                <td><input type="submit" value="전송2"></td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+</html>

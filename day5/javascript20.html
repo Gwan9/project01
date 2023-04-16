@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript20.html</title>
+    <script>
+        // 1. 배열 20칸짜리 생성
+        // 2. 웹사이트의 url을 할당
+        // ex) m[0] = "http://www.naver.com";
+        // ex) m[1] = "https://www.mcdonalds.co.kr/kor/main.do";
+        // 3. 버튼을 클릭하면 랜덤하게 20개의 사이트중 1곳으로 이동
+        function rndSite(){
+            var rnd = Math.random()*20;
+            var no = Math.floor(rnd);
+            console.log(no);
+            var m = new Array(20);
+            m[0] = "http://www.naver.com";
+            m[1] = "https://www.daum.net/";
+            m[2] = "https://www.mcdonalds.co.kr/kor/main.do";
+            m[3] = "https://www.google.com/";
+            m[4] = "https://www.instagram.com/";
+            m[5] = "https://ko-kr.facebook.com/";
+            m[6] = "https://www.coupang.com/";
+            m[7] = "https://www.baemin.com/";
+            m[8] = "https://www.samsung.com/";
+            m[9] = "https://www.lge.co.kr/";
+            m[10] = "https://comic.naver.com/index";
+            m[11] = "https://www.kakaocorp.com/page/";
+            m[12] = "https://www.daangn.com/";
+            m[13] = "https://www.cgv.co.kr/";
+            m[14] = "https://www.lottecinema.co.kr/";
+            m[15] = "https://www.netflix.com/kr/";
+            m[16] = "https://watcha.com/";
+            m[17] = "https://www.amazon.com/";
+            m[18] = "https://www.nike.com/";
+            m[19] = "https://m-flight.naver.com/";
+
+            location.href = m[no];
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="랜덤사이트로이동" onclick="rndSite();" >
+</body>
+</html>

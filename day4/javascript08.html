@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript08.html</title>
+    <script>
+        function cum(a){ //매개변수안에 변수명 쓸 필요 x 
+            console.log(a)
+            a = parseInt(a);
+            var hap =0;
+            
+            for(var i=1;i<=a;i++){
+                hap += i;
+            }
+            console.log("1부터 " + a + "까지 누적 합 : " + hap)
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="출력" onclick="cum(50);">
+</body>
+</html>

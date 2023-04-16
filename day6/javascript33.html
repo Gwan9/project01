@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript33.html</title>
+    <script>
+        // 4. 전역변수로 배열 선언 : msg
+        var msg = [];
+        
+        // 1. prt()함수 만들기
+        function prt(){
+
+            // 2. 메세지 출력
+            console.log("test");
+            // 3. id : txt1 엘리먼트 객체 가져오기
+            var txt1 = document.getElementById("txt1");
+
+            // 5. 배열에 value 값을 담기
+            msg.push(txt1.value);
+            console.log(msg);
+            
+            
+            // 6. 반복문 사용해서 data <== <li> value </li> 형식의 문자열
+            var data = "";
+            for(var i=0;i<msg.length;i++){
+                data += "<li>"+msg[i]+"</li>"
+                console.log(data);
+            }
+
+            // 7. id="ulEle" 엘리먼트의 data를 반영
+
+            var ulEle = document.getElementById("ulEle");
+
+            ulEle.innerHTML = data;
+
+            
+            txt1.value = "";
+            txt1.focus();
+        }
+    </script>
+</head>
+<body>
+    <h1>점심메뉴</h1>
+    <input type="text" name="" id="txt1">
+    <input type="button" value="입력" onclick="prt();">
+
+    <div>
+        <ul id="ulEle">
+            <li>메뉴</li>
+        </ul>
+    </div>
+</body>
+</html>

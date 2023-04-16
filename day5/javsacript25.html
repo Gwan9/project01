@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript25.html</title>
+    <script>
+        function changeImage(){
+        
+            var photo = document.getElementById("photo");
+
+            console.dir(photo);
+
+            photo.src = "../images/after.PNG";
+       }
+       function changeImage2(){
+        
+        var photo2 = document.getElementById("photo");
+
+        console.dir(photo2);
+
+        photo2.src = "../images/before.PNG";
+        }
+    </script>
+</head>
+<body>
+    <img src="../images/before.PNG" alt="원래 뽀로로 이미지" id="photo" onmouseover="changeImage();"
+     onmouseout="changeImage2();">
+</body>
+</html>

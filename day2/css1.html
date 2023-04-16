@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <style>
+        /* 다양한 디자인적 요소를 정리 
+        
+            선택자 : tag
+            선택자 {속성값 : 값;}
+        
+        */
+
+
+        table{
+            width: 500px;
+            border: 1px solid red; 
+            /* border: 3px dotted blue; */
+            /* border-top: 2px solid red; */
+            text-align: center; /*중앙정렬*/
+            border-collapse: collapse;
+        }
+        tr{
+            background-color: rgb(4, 207,92);
+        }
+
+        td{
+            border:1px solid rgb(255, 255, 255);
+        }
+        /* a{
+            border: 1px solid red;
+        } */
+    </style>
+
+</head>
+<body>
+
+    <p>
+       CSS(Cascade Style Sheet) : 하위에 스타일 동시 적용
+    </p>
+    <!-- 2행 2열 테이블 1~4 -->
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <!-- 3행 3열 테이블 1~9 -->
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+
+    <!-- 네이버 글씨를 클릭하면 네이버로 이동할 수 있는 하이퍼링크 -->
+    <a href="https://www.naver.com/" style="border:1px solid goldenrod">네이버</a>
+    <a href="https://www.google.com/">구글</a>
+</body>
+</html>

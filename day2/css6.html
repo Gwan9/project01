@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css6.html</title>
+
+    <!-- 첫번째 p태그의 글자색을 red -->
+    <!-- 두번째 p태그의 글자색을 blue -->
+    <!-- 세번째, 네번째 p태그의 글자색을 green -->
+    <style>
+        
+        
+        
+        #aaa{
+            color:red;
+        }
+        #bbb{
+            color:blue;
+        }
+        li.blueE{
+            color:yellowgreen
+        }
+        li.bigfont{
+            font-size: 30px;
+        }
+        li.pinkColor{
+            color: pink;
+        }
+            </style>
+</head>
+<body>
+        <!-- id 중복 x -->
+        <!-- class : 묶음단위로 처리 -->
+        <h1>ID 선택자</h1>
+        <p id="aaa">HTML의 모든 요소는 선택자로 사용가능</p>
+        <p id="bbb">HTML의 모든 요소는 선택자로 사용가능</p>
+        <p class="blueE">HTML의 모든 요소는 선택자로 사용가능</p>
+        <p class="blueE">HTML의 모든 요소는 선택자로 사용가능</p>
+
+        <!-- ul>(li{상품$})*5     $숫자 순서대로 입력됨-->
+        <!-- 상품 1, 3, 에 새로운 크래스를 지정하고 font크기 30px로 변경
+        상품 2,4,5 에 새로운 클래스 지정 color pink로 변경 -->
+        <ul>
+            <li class="bigfont">상품1</li>
+            <li class="pinkColor">상품</li>
+            <li class="bigfont">상품3</li>
+            <li class="pinkColor">상품4</li>
+            <li class="pinkColor">상품5</li>
+        </ul>
+</body>
+</html>

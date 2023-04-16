@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function inputData(v){
+            console.log(v);
+            // 1. result input 엘리먼트 객체 가져오기
+            var resultEle = document.getElementById("result");
+            
+            console.dir(resultEle);
+            console.log(resultEle.value);
+            // 2. 어떤 속성이 있는지 확인
+            // 3. 전달하는 값 대입 .. 브라우저가 자동으로 반영
+            resultEle.value += v;
+
+            
+        }
+        function cal(){
+            // 1. id 가 result 인 엘리먼트의 값을 가져오기
+            var resultEle = document.getElementById("result")
+            var data = resultEle.value;
+            console.log("data : " + data);
+
+            // 한줄 줄여서
+            var data2 = document.getElementById("result").value;
+            console.log("data2 : " + data2)
+            // 2. 글자를 식으로 변환해주는 함수 eval()
+            var result = eval(data2);
+
+            
+            // 3. id 가 result 인 엘리먼트의 값으로 지정
+            data2 = result;   // result = 계산식
+            resultEle.value = result; // 현재 결과가 브라우저에 반영  
+            
+
+        }
+        function c(){
+
+            document.getElementById("result").value = "";
+
+        }
+
+        </script>
+    <style>
+        table, td{
+            border-collapse: collapse;
+            border : 1px solid red;
+            text-align: center;
+            
+        }
+        table{
+            width : 500px;
+            height: 250px;
+            margin: 0px auto;
+        }
+        input{
+            width: 85px;
+        }
+        input#result{
+            width: 350px;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: right onclick = "inputData();";
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="4">
+                <input type="text" name="" id="result">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="Clear" onclick="c()"></td>
+            <td><input type="button" value="(" onclick="inputData('(');";></td>
+            <td><input type="button" value=")" onclick="inputData(')')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick = "inputData(7);"></td>
+            <td><input type="button" value="8" onclick = "inputData(8);"></td>
+            <td><input type="button" value="9" onclick = "inputData(9);"></td>
+            <td><input type="button" value="+" onclick = "inputData('+');"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick = "inputData(4);"></td>
+            <td><input type="button" value="5" onclick = "inputData(5);"></td>
+            <td><input type="button" value="6" onclick = "inputData(6);"></td>
+            <td><input type="button" value="-" onclick = "inputData('-');"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick = "inputData(1);"></td>
+            <td><input type="button" value="2" onclick = "inputData(2);"></td>
+            <td><input type="button" value="3" onclick = "inputData(3);"></td>
+            <td><input type="button" value="*" onclick = "inputData('*');"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" onclick = "inputData(0);"></td>
+            <td><input type="button" value="00" onclick = "inputData('00');"></td>
+            <td><input type="button" value="=" onclick = "cal();"></td>
+            <td><input type="button" value="/" onclick = "inputData('/');"></td>
+        </tr>
+    </table>
+</body>
+</html>

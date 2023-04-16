@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>space04.html</title>
+    <!-- 내 우주선을 마우스 위치로  -->
+    <style>canvas{background-color: #aaaaaa;}
+    *{margin :0; padding: 0;}</style>
+    <script>
+        //------------------------------------------------------------------
+        var bg1 = new Image();
+        bg1.src = "../images/space.jpg";
+        var bg2 = new Image();
+        bg2.src = "../images/space.jpg";
+        var ctx;
+
+        //빨강 gunship
+        var gunship1 = new Image();
+        gunship1.src = "../images/gunship4.png";
+        //빨강 gunship
+        var gunship2 = new Image();
+        gunship2.src = "../images/gunship5.png";
+        //빨강 gunship
+        var gunship3 = new Image();
+        gunship3.src = "../images/gunship6.png";
+        //빨강 gunship
+        var gunship4 = new Image();
+        gunship4.src = "../images/gunship7.png";
+        
+        var enemyShip1 = new Image();
+        enemyShip1.src = "../images/gunship0.png";
+        var enemyShip2 = new Image();
+        enemyShip2.src = "../images/gunship1.png";
+        var enemyShip3 = new Image();
+        enemyShip3.src = "../images/gunship2.png";
+        var enemyShip4 = new Image();
+        enemyShip4.src = "../images/gunship3.png";
+
+        var enemy2Ship1 = new Image();
+        enemy2Ship1.src = "../images/gunship11.png";
+        var enemy2Ship2 = new Image();
+        enemy2Ship2.src = "../images/gunship12.png";
+        var enemy2Ship3 = new Image();
+        enemy2Ship3.src = "../images/gunship13.png";
+        var enemy2Ship4 = new Image();
+        enemy2Ship4.src = "../images/gunship14.png";
+
+        var gunship13 = new Image();
+        gunship13.src = "../images/gunship21.png";
+        var gunship14 = new Image();
+        gunship14.src = "../images/gunship22.png";
+        var gunship15 = new Image();
+        gunship15.src = "../images/gunship23.png";
+        var gunship16 = new Image();
+        gunship16.src = "../images/gunship24.png";
+        
+
+        var counter = 0;
+        var ctx;
+        
+        // bgY 객체 생성
+        var bgY = 0;
+        var bg2Y = -800;
+        
+        //------------------------------------------------------------------
+        window.onload=function(){
+            var canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+            
+            
+            
+            // drawScreen
+            window.setInterval(drawScreen, 50);
+            // body객체
+            var body = document.body;
+            body.onmousemove = moveship;
+            
+        }
+        //------------------------------------------------------------------
+        function drawScreen(){
+            counter ++;
+            // console.log(counter);
+            
+            // bg가 밑으로 내려가려면 ++ //좌표 : 0 -> 좌표 : 800
+            bgY += 30;
+            bg2Y += 30;
+            
+
+            // bgY 가 0에서 증가해서 800에 도달하면 다시 bgY를0으로 , bg2Y를-800으로
+            // bg2Y 가 -800에서 증가해 0에 도달하면 다시 bg2Y를-800으로 , bgY를0으로
+            if(bgY >= 800){
+                bgY = 0;
+                bg2Y = -800;
+            if(bg2Y >= 0){
+                bgY = 0;
+                bg2Y = -800;
+            }
+            }
+            ctx.drawImage(bg1,0,bgY,600,800);
+            ctx.drawImage(bg2,0,bg2Y,600,800);
+
+
+            if (counter % 4 == 1){
+                ctx.drawImage(gunship1,shipX-25,shipY-25,50,50)
+                ctx.drawImage(enemyShip1,150,100,50,50)
+                ctx.drawImage(enemy2Ship1,300,100,50,50)
+                ctx.drawImage(gunship13,450,100,50,50)
+            }else if (counter % 4 == 2){
+                ctx.drawImage(gunship2,shipX-25,shipY-25,50,50)
+                ctx.drawImage(enemyShip2,150,100,50,50)
+                ctx.drawImage(enemy2Ship2,300,100,50,50)
+                ctx.drawImage(gunship14,450,100,50,50)
+            }else if (counter % 4 == 3){
+                ctx.drawImage(gunship3,shipX-25,shipY-25,50,50)
+                ctx.drawImage(enemyShip3,150,100,50,50)
+                ctx.drawImage(enemy2Ship3,300,100,50,50)
+                ctx.drawImage(gunship15,450,100,50,50)
+            }else{
+                ctx.drawImage(gunship4,shipX-25,shipY-25,50,50)
+                ctx.drawImage(enemyShip4,150,100,50,50)
+                ctx.drawImage(enemy2Ship4,300,100,50,50)
+                ctx.drawImage(gunship16,450,100,50,50)
+            }
+
+           
+            
+        }
+        //------------------------------------------------------------------
+        function moveship(e){
+            // console.log(e);
+            shipX = e.pageX;
+            shipY = e.pageY;
+            
+        }
+        //------------------------------------------------------------------
+
+        
+        </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="800"></canvas>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript23</title>
+    <script>
+        function printwhere(){
+        
+            console.dir(document.frm.where.selectedIndex);
+
+            var addrs = new Array(5);
+            addrs[1] = "https://www.burgerking.co.kr";
+            addrs[2] = "https://www.momstouch.co.kr";
+            addrs[3] = "https://www.subway.co.kr";
+            addrs[4] = "https://www.mcdonalds.co.kr";
+
+            location.href = addrs[document.frm.where.selectedIndex];
+        }
+    </script>
+</head>
+<body>
+    <h1>당신이 좋아하는 패스트푸드점은 ?</h1>
+    <form action="" name="frm">
+        <select name="where" id="sel" onchange="printwhere();">
+            <option value="">--------------</option>
+            <option value="버거킹">버거킹</option>
+            <option value="맘스터치">맘스터치</option>
+            <option value="서브웨이">서브웨이</option>
+            <option value="맥도날드">맥도날드</option>
+        </select>
+    </form>
+</body>
+</html>

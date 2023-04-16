@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>space02.html</title>
+    <!-- 우주배경 지나가기 -->
+    <style>canvas{background-color: #aaaaaa;}</style>
+    <script>
+        var bg1 = new Image();
+        bg1.src = "../images/space.jpg";
+        var bg2 = new Image();
+        bg2.src = "../images/space.jpg";
+        var ctx;
+
+        //빨강 gunship
+        var gunship1 = new Image();
+        gunship1.src = "../images/gunship4.png";
+        //빨강 gunship
+        var gunship2 = new Image();
+        gunship2.src = "../images/gunship5.png";
+        //빨강 gunship
+        var gunship3 = new Image();
+        gunship3.src = "../images/gunship6.png";
+        //빨강 gunship
+        var gunship4 = new Image();
+        gunship4.src = "../images/gunship7.png";
+        
+        var counter = 0;
+        var ctx;
+        
+        // bgY 객체 생성
+        var bgY = 0;
+        var bg2Y = -800;
+        
+        
+        window.onload=function(){
+            var canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+            
+            window.setInterval(drawScreen, 100);
+            
+            
+            
+        }
+        
+        function drawScreen(){
+            counter ++;
+            console.log(counter);
+            
+            // bg가 밑으로 내려가려면 ++ //좌표 : 0 -> 좌표 : 800
+            bgY += 30;
+            bg2Y += 30;
+            
+
+            // bgY 가 0에서 증가해서 800에 도달하면 다시 bgY를0으로 , bg2Y를-800으로
+            // bg2Y 가 -800에서 증가해 0에 도달하면 다시 bg2Y를-800으로 , bgY를0으로
+            if(bgY >= 800){
+                bgY = 0;
+                bg2Y = -800;
+            if(bg2Y >= 0){
+                bgY = 0;
+                bg2Y = -800;
+            }
+            }
+            ctx.drawImage(bg1,0,bgY,600,800);
+            ctx.drawImage(bg2,0,bg2Y,600,800);
+
+
+            if (counter % 4 == 1){
+                ctx.drawImage(gunship1,300,700,50,50)
+            }else if (counter % 4 == 2){
+                ctx.drawImage(gunship2,300,700,50,50)
+            }else if (counter % 4 == 3){
+                ctx.drawImage(gunship3,300,700,50,50)
+            }else{
+                ctx.drawImage(gunship4,300,700,50,50)
+            }
+
+           
+            
+        }
+        
+        </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="800"></canvas>
+</body>
+</html>

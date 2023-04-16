@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript23.html</title>
+    <script>
+        function checkform(){
+            // console.log("test");
+            // 입력한 값 콘솔에 출력
+
+            var id = document.getElementById("id");
+            var pw = document.getElementById("pw");
+            var pw2 = document.getElementById("pw2");
+            var email = document.getElementById("email");
+            
+            console.log(id.value);
+            console.log(pw.value);
+            console.log(pw2.value);
+            console.log(email.value);
+            
+            id = id.value;
+            pw = pw.value;
+            pw2 = pw2.value;
+            email = email.value;
+
+            if(id==""){
+                alert("아이디를 입력하세요");
+            }else if(pw==""){
+                alert("비밀번호를 입력하세요");
+            }else if(pw2==""){
+                alert("비밀번호확인을 입력하세요");
+            }else if(email==""){
+                alert("이메일을 입력하세요");
+            }else if(pw.length <= 7){
+                alert("패스워드의 길이는 8자 이상이어야 합니다.")
+            }else if(pw != pw2){
+                alert("비밀번호가 일치하지 않습니다.")
+            }else if(email.indexOf('@' == -1)){ // indexOf(문자)가 존재하지 않으면 -1로 표기
+                alert("이메일형식으로 작성하세요.")
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="next.html">
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="useridid" id="id"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="text" name="userpwpw" id="pw"></td>
+            </tr>
+            <tr>
+                <td>비밀번호확인</td>
+                <td><input type="text" name="userrepw" id="pw2"></td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td><input type="button" value="전송1" onclick="checkform();"></td>
+                <td><input type="submit" value="전송2"></td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+</html>

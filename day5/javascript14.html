@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript14.html</title>
+    <script>
+        function moveAddrs(){
+            var addrs = document.getElementById("addrs").value;
+
+            console.log(addrs);
+
+            document.getElementById("dest").value = addrs;
+
+            
+
+            
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        성명 : <input type="text" name="" id="" value="홍길동">
+        주소 : <input type="text" name="" id="addrs" value="서울시 종로구">
+    </div>
+
+    <div><input type="button" value="배송지동일" onclick="moveAddrs();"></div>
+    <div><input type="text" name="" id="dest"></div>
+</body>
+</html>

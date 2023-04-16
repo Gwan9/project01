@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var mArray = [
+            "1. 우크라이나 전쟁 종료",
+            "2. 치킨가격 5000원",
+            "3. 신입사원 취업 100% 달성",
+            "4. 제주도에서 석유가"
+        ]
+        var idx = 0;
+
+        function run(){
+            // idx++;
+            var box1 = document.getElementById("box1");
+            box1.innerHTML= "<h2>"+mArray[idx++]+"</h2>"
+            //idx++ 나를 쓰고 1증가
+            
+        if(idx == mArray.length){
+            idx = 0;
+        }
+            window.setTimeout(run,1000);
+            console.log("함수 실행됨");
+        }
+        </script>
+</head>
+<body onload="run()">
+    <div id="box1">
+        
+    </div>
+    <!-- <script>
+        
+        run();
+        window.setTimeout(run,1000);
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game7.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas { background-color: #aaaaaa;}
+    </style>
+    <script>
+        var bg1 = new Image();
+        var bg2 = new Image();
+        bg1.src = "../images/bg.jpg";
+        bg2.src = "../images/bg.jpg";
+        var rabbit1 = new Image();
+        var rabbit2 = new Image();
+        rabbit1.src = "../images/rabbit1.png";
+        rabbit2.src = "../images/rabbit2.png";
+        
+        var snipe = new Image();
+        snipe.src = "../images/snipe.png";
+
+        
+        // 배경 X좌표 변수 선언
+        var bgX1 = 0;
+        var bgX2 = 800;
+
+        // 토끼좌표
+        var rabbitX = 100;
+        var rabbitY = 100;
+
+        // 조준경 좌표 변수 선언
+
+        var snipeX = 0;
+        var snipeY = 0;
+
+        var ctx;
+        var counter =0;
+
+        // 배경음악 객체
+
+        var bgMusic = new Audio("../sounds/backsound.mp3");
+        
+        
+        
+        
+        window.onload=function(){
+            var canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+
+
+            // 캔버스위에서 마우스가 움직일 때
+            canvas.onmousemove=moveSnipe;
+
+
+            // body 태그 객체 얻어오기
+            // console.dir(document);
+            var body = document.body;
+            body.onkeydown=moveRabbit; // 키보드가 눌리면 함수명을 불러와
+            window.setInterval(drawScreen, 100);
+        }
+        function drawScreen(){
+            bgX1 -= 10;
+            bgX2 -= 10;
+            counter ++;
+
+            if(bgX1 <= -800){ // 첫번째배경이 완전히 화면밖으로 나가면
+                bgX1 = 800;
+                bgX2 = 0;
+            }
+            if(bgX2 <= -800){
+                bgX1 = 800;
+                bgX2 = 0;
+            }
+            // console.log(counter);
+            
+            ctx.drawImage(bg1,bgX1,0,800,600); // 배경 
+            ctx.drawImage(bg2,bgX2,0,800,600); // 배경 
+            if(counter % 2 == 1){
+                ctx.drawImage(rabbit1,rabbitX,rabbitY,100,100); // 토끼1
+                
+            }
+            
+            else{
+                ctx.drawImage(rabbit2,rabbitX,rabbitY,100,100); // 토끼1
+                
+            }
+
+            ctx.drawImage(snipe,snipeX-50,snipeY-50,100,100);
+            
+
+            
+            
+            
+        }
+        function moveRabbit(e){ // e : event 
+            
+            // console.log(e);
+           
+
+            if(e.keyCode == 38)rabbitY -=5;
+            else if(e.keyCode == 37)rabbitX -=5;
+            else if(e.keyCode == 39)rabbitX +=5;
+            else if(e.keyCode == 40)rabbitY +=5;
+        
+    }
+    function startMusic(){
+        console.log("배경음악 시작 플레이중");
+        bgMusic.play();
+    }
+    function stopMusic(){
+        console.log("배경음악 중지 ");
+        bgMusic.currentTime=0; // 처음으로 돌림
+        bgMusic.pause(); // 일시중지
+    }
+    function moveSnipe(e){
+        console.log(e);
+        snipeX = e.pageX;
+        snipeY = e.pageY;
+
+    }
+    
+
+    
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800px" height="600px"></canvas><br>
+    <input type="button" value="배경음악시작" onclick="startMusic()">
+    <input type="button" value="배경음악중지" onclick="stopMusic()"><br>
+
+    
+</body>
+</html>

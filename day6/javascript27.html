@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+    <script>
+        // 1. bigChance() 함수 만들기
+        function bigChance(){
+            // 2. 간단한 메세지 출력
+            console.log("test");
+            // 3. 6칸짜리 배열 선언
+            var num = new Array(6);
+            // 4. 랜덤하게 번호 6개 생성
+            // 5. 배열에 담기
+            for(var i=0;i<num.length;i++){
+                
+                var rnd = (Math.random()*45)+1;
+                rnd = Math.floor(rnd);
+                num[i] = rnd;
+                // for(var j=0; j<i;j++) {
+                //     if(num[j]==num[j-1]){
+                    //         i--;
+                    //     }
+                    // }
+                    for(var j=0; j<i; j++){
+                        if(num[j] == num[i]){
+                                console.log("중복발견 다시시도");
+                            i--;
+                        break;
+                    }
+                }
+            }
+            console.log(num)
+            
+            
+            // 6. img 객체 6개 가져오기
+            var img1 = document.getElementById("id1");
+            var img2 = document.getElementById("id2");
+            var img3 = document.getElementById("id3");
+            var img4 = document.getElementById("id4");
+            var img5 = document.getElementById("id5");
+            var img6 = document.getElementById("id6");
+            // 7. src에 image 경로 지정
+        
+            img1.src = "../images/ball"+num[0]+".png";
+            img2.src = "../images/ball"+num[1]+".png";
+            img3.src = "../images/ball"+num[2]+".png";
+            img4.src = "../images/ball"+num[3]+".png";
+            img5.src = "../images/ball"+num[4]+".png";
+            img6.src = "../images/ball"+num[5]+".png";
+
+
+
+        }
+    </script>
+</head>
+<body>
+
+    <img src="../images/q.jpg" alt="" id="id1">
+    <img src="../images/q.jpg" alt="" id="id2">
+    <img src="../images/q.jpg" alt="" id="id3">
+    <img src="../images/q.jpg" alt="" id="id4">
+    <img src="../images/q.jpg" alt="" id="id5">
+    <img src="../images/q.jpg" alt="" id="id6">
+
+    <input type="button" value="대박" onclick="bigChance();">
+</body>
+</html>

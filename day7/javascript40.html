@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javasscript40.html</title>
+    <style>
+        canvas { background-color: #aaaaaa;}
+    </style>
+    <script>
+        var bg = new Image();
+        bg.src = "../images/bg.jpg";
+        var rabbit1 = new Image();
+        var rabbit2 = new Image();
+        rabbit1.src = "../images/rabbit1.png";
+        rabbit2.src = "../images/rabbit2.png";
+        var ctx;
+        var counter =0;
+        window.onload=function(){
+            var canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+            // 붓 준비완료
+            // drawScreen();
+            // window.setTimeout(drawScreen,30);
+            window.setInterval(drawScreen, 100);
+        }
+        function drawScreen(){
+            counter ++;
+            console.log(counter);
+            
+            ctx.drawImage(bg,0,0,800,600); // 배경 
+            if(counter % 2 == 1){
+                ctx.drawImage(rabbit1,100,100,100,100); // 토끼1
+                }
+            
+            else{
+                ctx.drawImage(rabbit2,100,100,100,100); // 토끼1
+                }
+            
+            
+        
+    }
+        
+
+
+        </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800px" height="600px"></canvas>
+</body>
+</html>

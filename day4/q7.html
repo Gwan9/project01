@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function vs(){
+           
+            var txt1Ele = document.getElementById("txt1");
+            var txt2Ele = document.getElementById("txt2");
+
+            var no1 = txt1Ele.value;
+            var no2 = txt2Ele.value;
+
+            if(no1 > no2){
+                var result = no1;
+                console.log(result);
+            }
+            else if (no2>no1){
+                var result = no2;
+                console.log(result);
+            }
+            else{
+                console.log("같은 수")
+            }
+            
+
+
+            var no3 = eval(result);
+            
+            var resultEle = document.getElementById("result");
+
+            resultEle.value=no3;
+        
+
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="txt1">
+    <input type="button" name="vs" id="vsvs" onclick="vs()">
+    <input type="text" name="" id="txt2">
+    <input type="text" name="" id="result">
+    
+</body>
+</html>

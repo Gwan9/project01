@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css16.html</title>
+    <style>
+/* div 넓이 100px 높이 100px */
+/* box1배경색 red */
+/* box2배경색 blue */
+div{
+    width: 100px;
+    height: 100px;
+}
+div#box1{
+    background-color: red;
+}
+div#box2{
+    background-color: blue;
+}
+/* span ==> inline(자신의 컨텐츠 크기만 차지) 요소 ==> block(오른쪽 끝까지 다 차지) 요소 */
+span{
+    background-color: yellow;
+    width: 150px;
+    height: 150px;
+    display: block; /*block요소로 변경*/
+}
+/* span에 마우스를 올려 놓으면 배경을 초록색
+spam을 클릭하면 배경을 파랑색 */
+span:hover{
+    background-color: green;
+}
+span:active{
+    background-color: blue;
+}
+
+    </style>
+</head>
+<body>
+    <!-- (div>div#box1{푸른하늘})+(div>div#box2(은하수)+span{span은inline요소}) -->
+    
+    <div>
+        <div id="box1">푸른하늘</div>
+    </div>
+    <div>
+        <div id="box2">은하수</div>
+    </div>
+    <span>span은 inline 요소</span>
+    하하하
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript36.html</title>
+    <script>
+        // JSON(JavaScript Object Notation) 
+
+        // person 이름을 갖는 자바스크립트 객체
+        var person = {};
+        person.name = "뽀로로";
+        person.age = 28;
+        person.gender = "남";
+
+        console.dir(person);
+        
+        var person2 = {};
+        person2.name = "루피";
+        person2.age = 15;
+        person2.gender = "여";
+
+        console.dir(person2);
+
+        // 성인판별 함수
+        function isAdult(obj){
+            var result;
+            if(obj.age > 19){
+                result = "성인";
+
+            }else {
+                result = "미성년";
+            }
+            console.log(obj.name + "씨는 " + result + "입니다.")
+        }
+        console.log("--------------------");
+        isAdult(person);
+        console.log("--------------------");
+        isAdult(person2);
+
+        // dog 객체를 만들고 : 구름 , 7, 백수
+        // 성인판별
+
+
+        var dog = {};
+        dog.name = "구름";
+        dog.age = 7;
+        dog.job = "백수";
+        console.dir(dog);
+        console.log("--------------------");
+        isAdult(dog);
+        
+        // p 펭수 , 10 ,백수
+
+        var p1 = {};
+        p1.name = "펭수";
+        p1.age = 10;
+        p1.job = "백수";
+        console.log("--------------------");
+        console.dir(p1);
+        // JSON
+        var p2 = {
+            name : "펭수",
+            age : 10,
+            job : "백수"
+        };
+        console.dir(p2);
+
+        var p3 = {
+            name : "둘리",
+            age : 100000003,
+            gender : "남",
+            //익명함수
+            isAdult : function(){
+                var result;
+                if(this.age >19){
+                    result = "성인";
+                }else {
+                    result = "미성년";
+                }
+                console.log(this.name + "씨는 " + result + "입니다.");
+            }
+        }
+        p3.isAdult();
+
+
+        // p4 객체 홍길동 20 도적
+        // 이름은 홍길동이고 나이는 20살이며 직업은 도적 성인입니다.
+        var p4 = {
+            name : "홍길동",
+            age : 20,
+            job : "도적",
+            
+            info : function(){
+                var result = "";
+                if(this.age >19){
+                    result = "성인";
+                }else{
+                    result = " 미성년";
+                }
+            console.log("이름은 " + this.name + "이고 나이는" + this.age + "살이며 직업은 " + this.job + " " + result + "입니다.");
+            }
+        }
+            
+        
+        p4.info();
+        
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript39.html</title>
+    <style>
+        canvas{background-color: #aaaaaa;}
+    </style>
+    <script>
+        // 현재 창이 로딩되면 익명함수로 myCanvas 엘리먼트를 콘솔에 출력
+
+
+        window.onload = function(){
+            var canvas = document.getElementById("myCanvas");
+            console.dir(canvas);
+
+            var ctx = canvas.getContext("2d");
+
+            // 이미지 객체
+            var img = document.getElementById("img");
+            img.src = "../images/before.png";
+
+            var ppororo = new Image();
+            ppororo.src="../images/after.PNG";
+            ppororo.onload=function(){
+                ctx.drawImage(ppororo,0,0,100,100);
+                
+            }
+            console.dir(pproro);
+        }
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="500px" height = "500px"></canvas>
+    <img src="" alt="" id="img">
+</body>
+</html>

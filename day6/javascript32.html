@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript32.html</title>
+    <style>
+        
+    </style>
+    <script>
+        // 3. 전역변수로 배열 선언 5칸
+        var msg = [];
+        // var no = 0; 
+        // 1. saveData(x)함수 만들기
+        function saveData(){
+            // 2. 간단한 메세지 출력
+            // console.log("test");
+            // 4. savaData() 함수 안쪽에서  txt1 엘리먼트 객체 가져오기
+            var txt1 = document.getElementById("txt1");
+            
+            // 5. 사용자가 입력한 값을 가져와서 배열에 담기
+            console.log(txt1.value);
+            
+            // msg[no] = txt1.value;
+            // no++;
+            
+            // 6. 콘솔에 배열 출력
+            console.log(msg);
+            
+            
+            msg.push(txt1.value);
+            txt1.value = "";
+            txt1.focus();
+        }
+        
+        // 1. printData()함수 만들기
+        function printData(){
+            // 2. 간단한 메세지 출력
+            console.log("test")
+            // var data = msg.length=1;
+            
+            // 3. 배열에서 요소를 한개씩 꺼내서
+            
+            // 4. 출력한 문자열(data라는 이름) 만들기<h2>
+            var data = "";
+            
+                for(var i=0;i<msg.length;i++){
+                    console.log(msg[i]);
+                    data += "<h2>" +msg[i]+"</h2>";
+                }
+                
+                console.log(data);
+                // 5. id txt2객체 가져오기
+                
+                var txt2 = document.getElementById("txt2");
+                
+                // 6. 4번에서 만든 문자열을 사용해서
+                // 7. innerHTML 배열의 요소출력
+                
+                txt2.innerHTML = data;
+            
+        }   
+
+
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="txt1">
+    <input type="button" value="저장" onclick="saveData();">
+    <input type="button" value="출력" onclick="printData();">
+
+    <div id="txt2">
+        <h1>test</h1>
+        
+    </div>
+</body>
+</html>

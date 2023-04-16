@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript38.html</title>
+    <style>
+        canvas{background-color: #aaaaaa;}
+    </style>
+    <script>
+        
+        // function test(){
+
+        //     var canvas = document.getElementById("myCanvas");
+        //     console.dir(canvas);
+        // }
+        // window.onload=test; // test(); XX, 함수의 이름을 써야함
+       // head에서 실행 가능한 이유 : 함수로 사용해서
+       window.onload=function(){
+            var canvas = document.getElementById("myCanvas");
+            console.dir(canvas);
+            // 2d 컨텍스트 객체 가져오기
+            var ctx = canvas.getContext("2d");
+            // ctx : 붓
+
+            // 그림그리기 시작
+            ctx.beginPath();
+            // 시작 지점으로 이동
+            ctx.moveTo(50, 50);
+            // 선긋기
+            ctx.lineTo(150, 50);
+            // 선긋기
+            ctx.lineTo(50, 150);
+            
+            // 경로 닫기
+            ctx.closePath();
+            
+            ctx.fillStyle="#777ED9";
+
+            //사각형 그리기
+            ctx.fillRect(100,100,300,300);
+
+            ctx.stroke();
+
+            // 글씨
+            ctx.font = "35px 고딕";
+            var name = "고길동";
+
+            ctx.fillText("이름 " + name, 100, 50);
+       }
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="500px" height="500px"></canvas>
+</body>
+</html>

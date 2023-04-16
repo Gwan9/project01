@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>space01.html</title>
+    <!-- 우주 배경과 메인 우주선 그리기 -->
+    <style>canvas{background-color: #aaaaaa;}</style>
+    <script>
+        var bg = new Image();
+        bg.src = "../images/space.jpg";
+        
+        var ctx;
+
+        //빨강 gunship
+        var gunship1 = new Image();
+        gunship1.src = "../images/gunship4.png";
+        //빨강 gunship
+        var gunship2 = new Image();
+        gunship2.src = "../images/gunship5.png";
+        //빨강 gunship
+        var gunship3 = new Image();
+        gunship3.src = "../images/gunship6.png";
+        //빨강 gunship
+        var gunship4 = new Image();
+        gunship4.src = "../images/gunship7.png";
+       
+        var counter = 0;
+        var ctx;
+
+        var bgY = 0;
+        var bg2Y = 800;
+
+
+
+        window.onload=function(){
+            var canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+
+
+
+            // drawScreen
+            window.setInterval(drawScreen, 100);
+
+            
+            
+        }
+        
+        function drawScreen(){
+            counter ++;
+            console.log(counter);
+
+            
+            ctx.drawImage(bg,0,bgY,600,800);
+            
+
+
+            if (counter % 4 == 1){
+                ctx.drawImage(gunship1,300,700,50,50)
+            }else if (counter % 4 == 2){
+                ctx.drawImage(gunship2,300,700,50,50)
+            }else if (counter % 4 == 3){
+                ctx.drawImage(gunship3,300,700,50,50)
+            }else{
+                ctx.drawImage(gunship4,300,700,50,50)
+            }
+
+           
+            
+        }
+        </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="800"></canvas>
+</body>
+</html>

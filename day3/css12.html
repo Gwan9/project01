@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- h1 배경 실버 글자색 화이트 -->
+    <!-- p 배경 노랑색 패딩 10 -->
+    <!-- class rel 너비 300px 너비 300px 배경 파랑색 -->
+    <style>
+        h1{
+            color: white;
+            background-color: silver;
+        }
+        p{
+            background-color: yellow;
+            padding: 10px;
+        }
+        .rel{
+            /* relative : 원래 배치되어야 할 위치에서 상대적 위치로 */
+            position : relative;
+            top: 20px;
+            left: 100px;
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Relative Position</h1>
+    <p class="rel">박스의 위치를 지정할 때 사용할 수 있는 속성
+        top, right, left, bottom 이 있다.</p>
+    <p>상대 위치 지정방식으로 박스가 재 배치될 경우 다른 블록 요소 배치에
+        영향을 주지 않고 배치된다.</p>
+</body>
+</html>

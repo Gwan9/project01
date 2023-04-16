@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript12.html</title>
+    <script>
+        function cal(){
+            
+            var txt1Ele = document.getElementById("txt1");
+            var txt2Ele = document.getElementById("txt2");
+            var operEle = document.getElementById("oper");
+            
+
+
+            console.log(txt1Ele);
+            console.log(txt1Ele.value);
+            
+            var no1 = txt1Ele.value;
+            var no2 = txt2Ele.value;
+            var oper = operEle.value;
+
+            var msg = no1 + oper + no2;
+            
+            console.log(msg);
+        
+            var no3 = eval(msg); // 3*2 => 6   1+5 => 6
+
+            
+           var resultEle = document.getElementById("result");
+
+           resultEle.value=no3;
+        
+            
+        }
+
+
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="txt1" size="5">
+    <input type="text" name="" id="oper" size="3">
+    <input type="text" name="" id="txt2" size="5">
+    <input type="button" value="=" onclick="cal()">
+    <input type="text" name="" id="result">
+</body>
+</html>

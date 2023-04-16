@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript11.html</title>
+    <script>
+        // = 버튼을 누르면 앞에 입력한 값에서 뒤에 입력한 값을 뺀 값을 콘솔에 출력
+        function cal(){
+            // 1. ID 가 txt1인 엘리먼트 객체 가져오기
+            var txt1Ele = document.getElementById("txt1");
+            // 2. ID 가 txt2인 엘리먼트 객체 가져오기
+            var txt2Ele = document.getElementById("txt2");
+            
+            console.dir(txt1Ele);
+            console.dir(txt2Ele);
+            // 3. 두 객체로부터 값(value) 가져오기
+            var num1 = txt1.value
+            var num2 = txt2.value
+            // 4. 두 변수를 숫자로 형변환
+            num1 = parseInt(num1);
+            num2 = parseInt(num2);
+            // 5. 연산
+            // 6. 콘솔출력
+            console.log(num1+ " - " + num2 + " = " + result);
+
+            var resultEle = document.getElementById("result");
+
+            resultEle.value = result;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="txt1" size="5">
+    <input type="text" name="" id="txt2" size="5">
+    <input type="button" value="=" onclick="cal()">
+    <input type="text" name="" id="result">
+</body>
+</html>

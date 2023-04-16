@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript37.html</title>
+    <script>
+        // 자바의 생성자 (첫글자 대문자)
+        function Person(name, age, gender, job){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.job = job;
+            this.isAdult = function() { //익명함수
+                var result ;
+                if(this.age > 18){
+                    result = "성인";
+                }else {
+                    result = "미성년";
+                }
+                console.log(this.name + "씨는 " + result + "입니다.")
+            }//function() end
+        }//Person() end
+
+        var sin = new Person("신데렐라", 14, "여", "가사도우미");
+        console.dir(sin);
+        sin.isAdult();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

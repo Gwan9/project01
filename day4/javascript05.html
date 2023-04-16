@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript05.html</title>
+    <script>
+        function print3Dan(){
+            for(var i=1;i<=9;i++){
+                parseInt(i);
+                console.log("3 * " + i + " = " + (i*3));
+                document.write("3 * " + i + " = " + (i*3) +"<br>")
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- 3단 출력버튼을 누르면 print3Dan() 를 호출하고 콘솔에 구구단 3단을 출력 -->
+    <input type="button" value="3단출력" onclick="print3Dan()">
+</body>
+</html>

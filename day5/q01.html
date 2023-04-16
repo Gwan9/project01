@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q01.html</title>
+    <style>
+        #g{
+            
+            position: relative;
+            top: -400px;
+            left: 1300px;
+            width: 180px;
+            height: 380px;
+            box-shadow: 2px 2px 6px 1px gray;
+            
+        }
+        #img1:hover{
+            border: 2px solid #4285F4;
+        }
+        #img2:hover{
+            border: 2px solid #4285F4;
+        }
+        #img3:hover{
+            border: 2px solid #4285F4;
+        }
+        #img4:hover{
+            border: 2px solid #4285F4;
+        }
+        #img5:hover{
+            border: 2px solid #4285F4;
+        }
+        #img6:hover{
+            border: 2px solid #4285F4;
+        }
+
+    </style>
+    <script>
+        var arr = [
+            "https://static.coupangcdn.com/ea/cmg_paperboy/image/1681104620810/230411_C1_%EC%9D%B4%EB%8B%AC%EC%9D%98-%EC%A3%BC%EB%B0%A9%EC%84%B8%EC%9D%BC_SMD-27199_PC.jpg"
+            ,"https://static.coupangcdn.com/qa/cmg_paperboy/image/1680672290560/pc_crop.jpg"
+            ,"https://static.coupangcdn.com/wa/cmg_paperboy/image/1680755105350/Untitled-2.jpg"
+            ,"https://static.coupangcdn.com/na/cmg_paperboy/image/1681104661067/230411_C1_%ED%8C%A8%EC%85%98_A_SMD-27203_PC.jpg"
+            ,"https://image6.coupangcdn.com/image/ccm/banner/d8aa16d9e28232549566dd325ab8e5a4.png"
+            ,"https://image10.coupangcdn.com/image/ccm/banner/0a7e95e9c8dbc9377a174a5f5cc19565.jpg"
+        
+        ];
+        
+        var idx = 0;
+        function imageChange1(x){
+            
+            var photo1 = document.getElementById("img1");
+            var banner = document.getElementById("main");
+            bannerImg.src = arr[x];
+            
+            
+            window.setTimeout(imageChange1,3000)
+        }
+
+        function run(){
+            // var photo1 = document.getElementById("img1");
+            var bannerImg = document.getElementById("bannerImg");
+            bannerImg.src= arr[idx++];
+            if(idx== arr.length){
+                idx = 0;
+            }
+            window.setTimeout(run,1000);
+        }
+
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</head>
+<body onload="run()">
+    
+    <div id="main">
+        <img src="https://static.coupangcdn.com/ea/cmg_paperboy/image/1681104620810/230411_C1_%EC%9D%B4%EB%8B%AC%EC%9D%98-%EC%A3%BC%EB%B0%A9%EC%84%B8%EC%9D%BC_SMD-27199_PC.jpg" alt="" id="bannerImg">
+    </div>
+
+    <div id="g">
+        <img src="https://static.coupangcdn.com/ta/cmg_paperboy/image/1681104627325/230411_C1_%EC%9D%B4%EB%8B%AC%EC%9D%98-%EC%A3%BC%EB%B0%A9%EC%84%B8%EC%9D%BC_SMD-27199_BOX.png" alt="" id="img1" onmouseover="imageChange1(0);">
+        <img src="https://static.coupangcdn.com/ka/cmg_paperboy/image/1680672293284/item.jpg" alt="" id="img2" onmouseover="imageChange1(1);">
+        <img src="https://static.coupangcdn.com/ga/cmg_paperboy/image/1680755108350/Untitled-3.jpg" alt="" id="img3" onmouseover="imageChange1(2);">
+        <img src="https://static.coupangcdn.com/aa/cmg_paperboy/image/1681104669478/230411_C1_%ED%8C%A8%EC%85%98_A_SMD-27203_ITEM.jpg" alt="" id="img4" onmouseover="imageChange1(3);">
+        <img src="https://image10.coupangcdn.com/image/ccm/banner/eae68ef326386aab78295991b68fe210.png" alt="" id="img5" onmouseover="imageChange1(4);">
+        <img src="https://image8.coupangcdn.com/image/ccm/banner/1bf730ef9837f659267ab0a84fcc6fdd.jpg" alt="" id="img6" onmouseover="imageChange1(5);">
+    </div>
+    
+
+</body>
+</html>

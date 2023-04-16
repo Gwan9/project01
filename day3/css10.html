@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 230px;
+            height: 250px;
+            background-color: orange;
+        }
+        div#div1{
+            border: 1px solid black;
+            padding: 20px;
+            /* margin-left: 700px; */
+            /* margin: 20px 30px; 상하 좌우 */
+            /* margin: 0 auto; 브라우저에 맞게 중앙 */
+            /* margin-top: 10px;
+            margin-right: 20px;
+            margin-bottom: 30px;
+            margin-left: 40px;
+            ===> 12시기준 시계방향으로*/
+            margin : 10px, 20px, 30px, 40px;
+        }
+        div#div2{
+            background-color: pink;
+            width: 50px;
+            height: 50px;
+            padding: 40px,20px,40px,20px;
+            margin: 0 auto;
+        }
+
+        /* id가 div1 인 영역은 1px검정 실선 */
+        /* id가 div2 인 영역은 배경 핑크 너비 50px 높이50px */
+    </style>
+    
+</head>
+<body>
+    <div id="div1">
+        ID : <input type="text" name="id" id="">
+        PW : <input type="password" name="pw" id="">
+    </div>
+
+    <div id="div2">box2</div>
+</body>
+</html>

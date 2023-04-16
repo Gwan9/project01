@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javsscript29.html</title>
+    <script>
+        // 1. 함수만들기
+        function showDiv(){
+
+            // 2. 간단한 메세지 출력
+            console.log("test");
+
+            // 3. id : box1 인 엘리먼트 객체 가져오기
+            var box1 = document.getElementById("box1");
+            
+
+            // 4. 출력 dir()
+            console.dir(box1); 
+            // innerHTML , innerText 대소문자 주의
+
+            // 5. Hello 글자 쓰기
+            // box1.innerText = "<h1>Hello Javascript World!!</h1>"; // html 태그 XX
+            box1.innerHTML = "<h1>Hello Javascript World!!</h1>"; // html 태그 사용가능
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <div><input type="button" value="출력" onclick="showDiv();"></div>
+</body>
+</html>

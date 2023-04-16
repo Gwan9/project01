@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css15.html</title>
+    <style>
+        table, td, th{
+            border: 1px solid black;
+        }
+        table{
+            width: 100%;
+            /* 중앙정렬
+            테두리 병합 */
+            text-align: center;
+            border-collapse: collapse;
+        }
+        th{
+            font-size: 15px;
+            background-color: rgb(116, 101, 116);
+        }
+        td{
+            height: 24px;
+        }
+        tr{
+            font-size: 12px;
+            cursor: pointer;
+        }
+        #id{width: 10%;}
+            #pw{width: 10%;}
+            #name{width: 20%;}
+            #email{width: 30%;}
+            #addrs{width: 30%;}
+            /* 선택자
+            1. tag
+            2. id
+            3. class
+            4. 하위선택자
+            div p 부모엘리먼트 자'손'엘리먼트 (자손 : 자식의 자식..도 가능)
+            ol>li 부모엘리먼트 > 자'식'엘리먼트
+            5.유사선택자 : hover, active
+            th:hober;
+            td:active
+            */
+            th:hover{
+                /* 커서를 원래위치로 */
+                cursor: default;
+            }
+            tr:hover {
+                color: #ffffff;
+                background-color: #00ccff;
+                font-weight: bold;
+            }
+            .odd {
+                background-color: #bdbdbd;
+            }
+    </style>
+</head>
+<body>
+    <h1>마블 캐릭터 정보</h1>
+    <!-- table>(tr>th*5)+(tr>th*5)*4 -->
+    <table>
+        <tr>
+            <th id="id">ID</th>
+            <th id="pw">PW</th>
+            <th id="name">NAME</th>
+            <th id="email">EMAIL</th>
+            <th id="addrs">ADDRS</th>
+        </tr>
+        <tr class="odd">
+            <td>id1</td>
+            <td>pwd1</td>
+            <td>아이언맨</td>
+            <td>ironman@gmail.com</td>
+            <td>절벽위</td>
+        </tr>
+        <tr>
+            <td>id2</td>
+            <td>pwd2</td>
+            <td>토르</td>
+            <td>thor@gmail.com</td>
+            <td>아스가르드</td>
+        </tr>
+        <tr class="odd">
+            <td>id3</td>
+            <td>pwd3</td>
+            <td>헐크</td>
+            <td>hulk@gmail.com</td>
+            <td>뉴욕</td>
+        </tr>
+        <tr>
+            <td>id4</td>
+            <td>pwd4</td>
+            <td>캡틴아메리카</td>
+            <td>cap@gmail.com</td>
+            <td>마블스튜디오</td>
+        </tr>
+    </table>
+</body>
+</html>

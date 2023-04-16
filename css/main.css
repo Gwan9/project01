@@ -1,0 +1,62 @@
+@charset "UTF-8";  
+
+/* 
+2023.04.07
+작성자 : 신관호
+사이트의 메인화면용 css입니다. 
+*/
+
+div#container{
+    width: 900px;
+    margin: auto;
+}
+div#header{
+    background-color: silver;
+    color: white;
+    height: 200px;
+}
+img{
+    width: 900px;
+}
+#sidebar1{
+    background-color: brown;
+    width: 200px;
+    float: left;
+    margin-right: 10px;
+}
+#contents{
+
+    background-color: blue;
+    width: 480px;
+    float:left;
+    margin-right: 10px;
+}
+#sidebar2{
+    background-color: red;
+    width: 200px;
+    float: left;
+    
+}
+#footer{
+    background-color: green;
+    height: 200px;
+    /* float 효과 없애기 */
+    clear : both;
+}
+.button{
+    text-decoration: none;
+    text-align: center ;
+    font-size: 14px ;
+    font-family: "나눔고딕" ;
+    border: 1px solid #23e29c;
+    background-color: #f0ece0;
+    padding: 10px 20px;
+}
+.button:active{
+    background-color: red;
+    
+    color: blue;
+    position:relative;
+    top : 3px;
+    
+}

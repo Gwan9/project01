@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript18.html</title>
+    <style>
+        img{
+            width: 350px;
+            height: 500px;
+            
+        }
+    </style>
+</head>
+<body>
+    <img id="poster" alt="" >
+    <script>
+        function change_image(){
+        // 1.id poster 엘리먼트 객체 가쟈오기
+        var p = document.getElementById("poster");
+        
+        // 2. console.dir 로 출력하기
+        console.dir(p);
+        // 3. 속성 중 이미지와 관련있는 속성 찾아보기
+        // p.src = "../images/movie_image3.jpg";
+
+        // 4. 랜덤하게 정수를 생성
+
+        var rnd = Math.random()*10;
+        console.log(rnd);
+        // 그 값을 넘지않는 정수 9.234232 <-- 9
+        var no = Math.floor(rnd); // ()안의 값을 절대 넘지않는 가장 큰 정수
+        console.log(no);
+        // no : 0~9값
+
+        // 1부터 10까지
+        console.log(no + 1);
+        no++;
+        p.src = "../images/movie_image"+no+".jpg";
+
+
+            
+
+        }
+    </script>
+    <input type="button" value="광고변경" onclick = "change_image()">
+</body>
+</html>

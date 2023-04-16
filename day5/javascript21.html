@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript21.html</title>
+    <script>
+        function viewResult(){
+            var m1 = document.getElementById("m1");
+            var m2 = document.getElementById("m2");
+            var m3 = document.getElementById("m3");
+            var m4 = document.getElementById("m4");
+            var m5 = document.getElementById("m5");
+
+            console.dir(m1);
+            console.log(m1.checked)
+            
+            if(m1.checked){
+                console.log("스즈메의문단속");
+            }else if(m2.checked){
+                console.log("던전앤드래곤");
+            }else if(m3.checked){
+                console.log("더퍼스트슬램덩크");
+            }else if(m4.checked){
+                console.log("웅남이");
+            }else if(m5.checked){
+                console.log("리바운드");
+            }
+            console.log("-----------------")
+            console.dir(document);
+            console.log(document.frm.movie[0].checked);
+        }
+    </script>
+</head>
+<body>
+    <h1>추천영화</h1>
+    <form action="movie" name="frm">
+        <input type="radio" name="movie" id="m1">스즈메의문단속
+        <input type="radio" name="movie" id="m2">던전앤드래곤
+        <input type="radio" name="movie" id="m3">더퍼스트슬램덩크
+        <input type="radio" name="movie" id="m4">웅남이
+        <input type="radio" name="movie" id="m5">리바운드
+        <input type="button" value="추천" onclick="viewResult();">
+    </form>
+        
+</body>
+</html>

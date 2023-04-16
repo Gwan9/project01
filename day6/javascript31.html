@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html31.html</title>
+    <script>
+        // 1. 함수만들기
+        function prt(){
+            // 2. 메세지 출력
+            console.log("test");
+            // 3. box1 에 간단한 메세지를 h3태그로 출력
+            var box1 = document.getElementById("box1");
+            box1.innerHTML = "<h3>4월은 공휴일이 없어요</h3>"
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="btn"onmouseover ="prt();">버튼</div>
+</body>
+</html>

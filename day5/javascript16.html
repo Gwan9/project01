@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript16.html</title>
+    <script>
+        function getTime(){
+            console.log("test");
+
+            var now = new Date();
+            console.log(now);
+            console.dir(now);
+            // 연도구하기
+            var year = now.getYear(); // 1900년 기준  : + 123년
+            console.log(year);
+            var year2 = now.getFullYear();
+            console.log(year2); // 현재 년도 : 2023년
+
+            var time = now.getFullYear() + "년" +
+                    (now.getMonth()+1) + "월" + // getMonth() : 0월부터 시작
+                    now.getDate() + "일" +
+                    now.getHours() + "시" +
+                    now.getMinutes() + "분" +
+                    now.getSeconds() + "초";
+            console.log(time);
+
+            var timeEle = document.getElementById("time");
+
+            timeEle.value = time;
+
+            // 문자열 객체
+            // String str = new String("ABCDEFG");
+
+            var str = "ABCDEFG";
+
+            console.log(str);
+            console.dir(str);
+
+            console.log(str.substring(2,3));
+        
+            //특정 문자의 위치
+            console.log(str.indexOf('A'));
+
+            // 중첩가능
+            var email = "dagda@asdfasdf.com";
+
+            // @ 문자 위치 ?
+            var position = email.indexOf('@');
+            console.log(position);
+            console.log(email.substr(0,5));
+
+            // id만 추출 가능
+            console.log(email.substr(0,email.indexOf('@')));
+
+            var friendList = "aaa,bbb,ccc,ddd,eee,fff";
+            //split("기호")를 통해서 문자열을 짤라 배열 형태로 리턴
+            var fList = friendList.split(",");
+            console.log(fList);
+            // 배열 요소를 반복문으로 사용해서 콘솔에 출력
+
+            for(var i=0;i<fList.length;i++){
+                console.log(fList[i]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="time">
+    <input type="button" value="지금시간출력하기" onclick="getTime();">
+
+    <!-- 버튼을 클릭하면 지금 현재 날짜 시간을 input:text에 출력 -->
+</body>
+</html>

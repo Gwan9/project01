@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>login.html</title>
+</head>
+<body>
+
+    <!-- http(Hyper Text Transport protocol)
+    하이퍼 텍스트를 전송하기 위한 통신규약(약속)
+    클라이언트에서 서버에게 무언가를 요청 http method
+    1. GET : 주소창에 양식값을 전달
+            -- 항상 요청하면 동일한 응답
+    ?xxxxx : QueryString
+    ?id=aaa&pwd=bbb
+    2. POST : body안에 감춰서 전달
+            -- 같은 방식으로 요청을 해도 다른 결과를 줄 수 있다.
+-->
+
+    <form action="next.html" method ="post">
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td><input type="text" name="id" id="" placeholder="아이디를 입력"></td>
+        </tr>
+        <tr>
+            <td>PW</td>
+            <td><input type="password" name="pw" id="" placeholder="패스워드를 입력"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="로그인">
+                <input type="reset" value="다시입력">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

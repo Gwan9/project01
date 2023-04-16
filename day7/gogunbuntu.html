@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{background-color: #aaaaaa;}
+    </style>
+    <script>
+        var counter=0;
+        
+        
+        var bg1 = new Image();
+        var bg2 = new Image();
+        
+        bg1.src = "../images/bg1.jpg";
+        bg2.src = "../images/bg2.jpg";
+        
+        var run1 = new Image();
+        var run2 = new Image();
+        var run3 = new Image();
+        
+        run1.src = "../images/run1.png";
+        run2.src = "../images/run2.png";
+        run3.src = "../images/run3.png";
+        
+        
+        var gold = new Image();
+        var silver = new Image();
+        gold.src = "../images/gold.png";
+        silver.src = "../images/silver.png";
+
+        
+        
+        
+        var bg1X = 0;
+        var bg2X = 800;
+        
+        
+        
+        var runX = 250;
+        var runY = 280;
+        
+        // var rnd = Math.random()*300+1;
+        // rnd = Math.floor(rnd);
+        
+        var silverX = 800;
+        var silverY = 280;
+        var goldX = 800;
+        var goldY = 280;
+
+        
+        var jumpY = 280;
+
+        var coinArray = [];
+        var coinY = 0;
+        
+        window.onload=function(){
+            
+            var canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+            
+            
+            
+            canvas.onmousedown = jump;
+            
+            
+            window.setInterval(drawScreen, 30);
+        }
+        
+        
+        function drawScreen(){
+
+            
+            bg1X -= 10;
+            bg2X -= 10;
+            goldX -= 15;
+            silverX -= 15;
+            counter ++;
+
+            // if(runY >= 100){ 
+            //     runY -= 100;
+            // }
+            
+            if(bg1X <= -800){
+                bg1X = 800;
+                bg2X = 0;
+                
+                
+            }
+            if(bg2X <= -800){
+                bg1X = 800;
+                bg2X = 0;
+                
+            }
+            
+            if(goldX <= -1000){
+                goldX = 1000;
+                goldCoinY();
+
+            }
+            if(silverX <= -800){
+                silverX = 800;
+                silverCoinY()
+
+            }
+            
+            console.log(counter);
+            ctx.drawImage(bg1,bg1X,0,800,500);
+            ctx.drawImage(bg2,bg2X,0,800,500);
+            
+
+            
+            ctx.drawImage(gold,goldX,goldY,70,70);
+            ctx.drawImage(silver,silverX,silverY,70,70);
+
+
+
+
+            if(counter % 3 == 1){
+                ctx.drawImage(run1,runX,jumpY,100,100);
+            }else if(counter % 3 == 2){
+                ctx.drawImage(run2,runX,jumpY,100,100);
+            }else {
+                ctx.drawImage(run3,runX,jumpY,100,100);
+            }
+
+
+
+
+        }
+        function jump(e){
+            
+            // console.log(e);
+            
+                jumpY -= 100;
+            
+
+            
+            window.setTimeout(function(){
+                jumpY += 100;
+                
+            },500);
+        }
+        
+        function makeCoin(){
+            coinY = Math.random()*420;
+            var coin =  { x : 800, y : coinY}
+            coinArray.push(coin);
+        }
+
+
+
+        
+        function silverCoinY(){
+            var rnd = Math.random()*400+1;
+            rnd = Math.floor(rnd);
+            
+            silverY = 280-rnd;
+            
+        
+        }
+        function goldCoinY(){
+            var rnd = Math.random()*400+1;
+            rnd = Math.floor(rnd);
+            
+            
+            goldY = 280-rnd;
+        
+        }
+        // function checkCollision(){
+        //     console.log("충돌");
+            
+
+        //     // 1. 적 우주선 배열에서 적 우주선ㅇ르 한대 꺼내기
+        //     for(var i=0;i<enemyArray.length;i++){
+        //         var e = enemyArray[i];
+        //         // 2. 내 우주선의 좌표
+        //         var dis = pythagoras(e.x, e.y, shipX, shipY);
+        //     console.log("우주선간 거리 : " + dis)
+            
+        //     if(dis <=40){
+        //         console.log("game over");
+        //     }
+        //     // 3. 피타고라스 함수를 사용해서 둘사이의 거리를 측정
+        //     // 가까우면 게임오버 라는 메세지를 콘솔에 출력
+            
+            
+        //     // 4 
+        // }
+        // }
+        
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="500" ></canvas>
+</body>
+</html>
