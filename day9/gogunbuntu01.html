@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gogunbuntu01.html</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        canvas{background-color: #aaaaaa;}
+    </style>
+    <script>
+        var canvas;
+        var ctx;
+        var bg1 = new Image();
+        bg1.src = "../images/bg1.jpg";
+        var bg2 = new Image();
+        bg2.src = "../images/bg2.jpg";
+        var bg1X = 0;
+        var bg2X = 800;
+        // cat image
+        var cat1 = new Image();
+        var cat2 = new Image();
+        var cat3 = new Image();
+        cat1.src = "../images/run1.png";
+        cat2.src = "../images/run2.png";
+        cat3.src = "../images/run3.png";
+
+        var gold = new Image();
+        var silver = new Image();
+        gold.src = "../images/gold.png";
+        silver.src = "../images/silver.png";
+
+        
+        var counter =  0;
+        // cat x 좌표 y좌표
+        var catX = 50;
+        var catY = 350;
+
+        var temp = false;
+        var counter2 = 0;
+
+        var score = 0;
+
+        var coinArray = [];
+        var coinY = 0;
+
+        var t = 0;
+        
+
+
+        window.onload = function(){
+            canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d")
+            canvas.onmousedown = jump;
+            
+            ctx.drawImage(bg1,0,0,800,600)
+            window.setInterval(drawImage, 30);
+            window.setInterval(getCoin, 10);
+        }
+        function jump(e){
+            console.log("점프 함수 호출")
+            // console.dir(e);
+            // 위로 올라가기
+            if(temp == true) return
+            temp = true;
+            counter2 = 0;
+            
+            // 내려가기
+
+        }
+        function makeCoin(){
+            var t = Math.floor(Math.random()*2)+1;
+            coinY = Math.floor(Math.random()*700);
+            var coin =  { x : 800, y : coinY, type: t}
+            coinArray.push(coin);
+                    
+        }
+        function pythagoras(x1, y1, x2, y2){
+            return Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+        }
+
+        function getCoin(){
+            for(var i=0; i<coinArray.length;i++){
+                var c = coinArray[i];
+                var dis = pythagoras(c.x, c.y, catX, catY)
+                // console.log(dis);
+                
+                if (dis <= 40) {
+                    // 콘솔에 메세지 출력
+                    console.log("get coin")
+                    c.y -= 1000
+
+                         // 타입마다 스코어 조정
+                    score += 200*c.type;
+                    // else if(e.type == 2)score += 100;
+                     
+                }
+            }
+        }
+
+        function drawImage(){
+
+            
+            
+            counter ++;
+            counter2 ++;
+
+            if(temp == true && counter2 < 15){
+                // console.log(counter2)
+                catY -= 20;
+            }else if(temp == true && counter2<30){
+                // console.log(counter2)
+                catY += 20;
+            }else if(counter2 >= 30){
+                counter2 = 0;
+                catY = 350;
+                temp = false;
+            }
+            bg1X -= 4;
+            bg2X -= 4;
+            if (bg1X <= -800){
+                bg1X = 800;
+                bg2X = 0;
+            }
+            if (bg2X <= -800){
+                bg2X = 800;
+                bg1X = 0;
+            }
+            if(counter % 10 == 0)
+                makeCoin();
+            // }
+            // 배경 그리기
+            ctx.drawImage(bg1, bg1X, 0, 800, 600)
+            ctx.drawImage(bg2, bg2X, 0, 800, 600)
+            
+            // 캐릭터 그림 그리기
+            if(counter % 3 == 0) ctx.drawImage(cat1, catX, catY, 100, 100);
+            else if(counter % 3 == 1)ctx.drawImage(cat2, catX, catY, 100, 100);
+            else if(counter % 3 == 2)ctx.drawImage(cat3, catX, catY, 100, 100);
+        
+            // 코인 그리기
+                for (var i = 0; i < coinArray.length; i++) {
+                    
+                    var c = coinArray[i];
+                    if(c.type == 1){
+                        console.log(c)
+                        ctx.drawImage(gold, c.x ,c.y-25, 50, 50);
+                    }
+                    else if(c.type == 2){
+                        console.log(c)
+                        ctx.drawImage(silver, c.x, c.y-25, 50, 50);
+                    }
+                    c.x -= 10;
+                }
+                
+            ctx.fillStyle="#325E76"
+            ctx.font ="30px 고딕"
+            ctx.fillText("score : " + score , 150,200)
+        }   
+
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800px" height="600px"></canvas>
+</body>
+</html>

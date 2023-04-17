@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>space13.html</title>
+    <!-- 충돌테스트 2번째 미사일과 적 우주선 충돌 -->
+    <style>
+        canvas {
+            background-color: #aaaaaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <script>
+        //-------------------------------------------------------------------------
+        var bg1 = new Image();
+        bg1.src = "../images/space.jpg";
+        var bg2 = new Image();
+        bg2.src = "../images/space.jpg";
+        var ctx;
+
+        //빨강 gunship
+        var gunship1 = new Image();
+        gunship1.src = "../images/gunship4.png";
+        //빨강 gunship
+        var gunship2 = new Image();
+        gunship2.src = "../images/gunship5.png";
+        //빨강 gunship
+        var gunship3 = new Image();
+        gunship3.src = "../images/gunship6.png";
+        //빨강 gunship
+        var gunship4 = new Image();
+        gunship4.src = "../images/gunship7.png";
+
+        var enemy1Ship1 = new Image();
+        enemy1Ship1.src = "../images/gunship0.png";
+        var enemy1Ship2 = new Image();
+        enemy1Ship2.src = "../images/gunship1.png";
+        var enemy1Ship3 = new Image();
+        enemy1Ship3.src = "../images/gunship2.png";
+        var enemy1Ship4 = new Image();
+        enemy1Ship4.src = "../images/gunship3.png";
+
+        var enemy2Ship1 = new Image();
+        enemy2Ship1.src = "../images/gunship11.png";
+        var enemy2Ship2 = new Image();
+        enemy2Ship2.src = "../images/gunship12.png";
+        var enemy2Ship3 = new Image();
+        enemy2Ship3.src = "../images/gunship13.png";
+        var enemy2Ship4 = new Image();
+        enemy2Ship4.src = "../images/gunship14.png";
+
+        var enemy3Ship1 = new Image();
+        enemy3Ship1.src = "../images/gunship21.png";
+        var enemy3Ship2 = new Image();
+        enemy3Ship2.src = "../images/gunship22.png";
+        var enemy3Ship3 = new Image();
+        enemy3Ship3.src = "../images/gunship23.png";
+        var enemy3Ship4 = new Image();
+        enemy3Ship4.src = "../images/gunship24.png";
+
+        // 미사일 객체
+        var missile1 = new Image();
+        missile1.src = "../images/missile1.png";
+
+        var counter = 0;
+        var ctx;
+
+        // bgY 객체 생성
+        var bgY = 0;
+        var bg2Y = -800;
+
+        var missileX = 0;
+        var missileY = 0;
+
+        var shipX = 0;
+        var shipY = 0;
+        // 미사일 배열
+        var missileArray = [];
+
+        // 적 우주선 Y좌표 
+
+        var e1X = 0;
+        var e1Y = 50;
+        var e2X = 0;
+        var e2Y = 50;
+        var e3X = 0;
+        var e3Y = 50;
+
+        // 적 우주선 배열
+        var enemyArray = [];
+        var enemyX = 0;
+        //-------------------------------------------------------------------------
+        window.onload = function () {
+            var canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+
+            // drawScreen
+            window.setInterval(drawScreen, 50);
+            window.setInterval(checkCollision, 5000)
+
+            window.setInterval(checkCollision2, 100)
+            // body객체
+            var body = document.body;
+            body.onmousemove = moveship;
+
+            body.onmousedown = fireMissile;
+
+        }
+        //-------------------------------------------------------------------------
+        function drawScreen() {
+
+            checkCollision();
+            if (counter % 20 == 0) {
+
+                makeEnemy()
+            }
+            counter++;
+            // console.log(counter);
+
+            // bg가 밑으로 내려가려면 ++ //좌표 : 0 -> 좌표 : 800
+            bgY += 30;
+            bg2Y += 30;
+
+            e1Y += 30;
+            e2Y += 30;
+            e3Y += 30;
+
+            for (var i = 0; i < enemyArray.length; i++) {
+                var e = enemyArray[i];
+                e.y += 10;
+            }
+
+            if (e1Y >= 800) {
+                e1Y = 0;
+
+            }
+            if (e2Y >= 800) {
+                e2Y = 0;
+
+            }
+            if (e3Y >= 800) {
+                e3Y = 0;
+
+            }
+
+            // missileY +=20;
+            //미사일 배열에서 미사일 하나를 꺼내서
+            // y값 감소
+            for (var i = 0; i < missileArray.length; i++) {
+                var m = missileArray[i];
+                m.y -= 10;
+            }
+
+
+            // bgY 가 0에서 증가해서 800에 도달하면 다시 bgY를0으로 , bg2Y를-800으로
+            // bg2Y 가 -800에서 증가해 0에 도달하면 다시 bg2Y를-800으로 , bgY를0으로
+            if (bgY >= 800) {
+                bgY = 0;
+                bg2Y = -800;
+                if (bg2Y >= 0) {
+                    bgY = 0;
+                    bg2Y = -800;
+                }
+            }
+
+            ctx.drawImage(bg1, 0, bgY, 600, 800);
+            ctx.drawImage(bg2, 0, bg2Y, 600, 800);
+
+            if (counter % 4 == 1) {
+                //내우주선
+                ctx.drawImage(gunship1, shipX - 25, shipY - 25, 50, 50)
+            } else if (counter % 4 == 2) {
+                //내우주선
+                ctx.drawImage(gunship2, shipX - 25, shipY - 25, 50, 50)
+
+            } else if (counter % 4 == 3) {
+                //내우주선
+                ctx.drawImage(gunship3, shipX - 25, shipY - 25, 50, 50)
+
+            } else {
+                //내우주선
+                ctx.drawImage(gunship4, shipX - 25, shipY - 25, 50, 50)
+
+            }
+
+            for (var i = 0; i < enemyArray.length; i++) {
+                var e = enemyArray[i];
+                if (counter % 4 == 1) {
+                    ctx.drawImage(enemy1Ship1, e.x - 25, e.y - 25, 50, 50)
+                }
+                else if (counter % 4 == 2) {
+                    ctx.drawImage(enemy1Ship2, e.x - 25, e.y - 25, 50, 50)
+                }
+                else if (counter % 4 == 3) {
+                    ctx.drawImage(enemy1Ship3, e.x - 25, e.y - 25, 50, 50)
+                }
+                else {
+                    ctx.drawImage(enemy1Ship4, e.x - 25, e.y - 25, 50, 50)
+                }
+
+                if (e.y >= 1000) {
+                    enemyArray.shift();
+                }
+                // console.log(enemyArray)
+            }
+
+            //미사일 // 배경 위에 그려져야함 
+            for (var i = 0; i < missileArray.length; i++) {
+                var m = missileArray[i];
+                ctx.drawImage(missile1, m.x, m.y, 10, 10);
+
+
+
+                // 화면 밖으로 나가면 미사일 제거
+
+                if (m.y < -60)
+                    missileArray.shift();
+                // shift() : 배열 맨 앞의 값을 삭제
+                // unshift() : 배열 맨 앞의 값을 추가
+
+                // push() : 배열 맨 마지막에 추가
+                // pop() : 배열 맨 마지막에 값을 꺼낼 때
+
+            }
+            // console.log(missileArray);                
+
+        }
+
+        //-------------------------------------------------------------------------
+
+        function moveship(e) {
+            // console.log(e);
+            shipX = e.pageX;
+            shipY = e.pageY;
+
+        }
+        function fireMissile(e) {
+
+            mX = e.pageX;
+            mY = e.pageY;
+
+            // mX += shipX
+            // mX += shipY
+            var m = {
+                x: mX,
+                y: mY
+            };
+            missileArray.push(m);
+            // console.log(missileArray);
+
+        }
+        function makeEnemy() {
+            // 1. x좌표 랜덤값
+            enemyX = Math.random() * 550;
+            // 2. 적 우주선 객체를 생성
+            var enemy = { x: enemyX, y: 50 }
+            // 3. 배열에 담기
+            enemyArray.push(enemy);
+
+        }
+
+        function pythagoras(x1, y1, x2, y2) {
+            return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+        }
+
+        function checkCollision() {
+            // console.log("충돌테스트");
+
+
+            // 1. 적 우주선 배열에서 적 우주선ㅇ르 한대 꺼내기
+            for (var i = 0; i < enemyArray.length; i++) {
+                var e = enemyArray[i];
+                // 2. 내 우주선의 좌표
+                var dis = pythagoras(e.x, e.y, shipX, shipY);
+                // console.log("우주선간 거리 : " + dis)
+
+                if (dis <= 40) {
+                    console.log("game over");
+                }
+                // 3. 피타고라스 함수를 사용해서 둘사이의 거리를 측정
+                // 가까우면 게임오버 라는 메세지를 콘솔에 출력
+
+                // 4 
+            }
+        }
+        function checkCollision2() {
+            // 미사일과 적 우주선의 충돌
+            // 1. 미사일 배열에서 미사일 한개를 꺼낸다.
+            for (var i = 0; i < missileArray.length; i++) {
+                var m = missileArray[i];
+
+                // 2. 적 우주선 배열에서 우주선 한개를 꺼낸다.
+                for (var j = 0; j < enemyArray.length; j++) {
+                    var e = enemyArray[j];
+                    // 3. 적 우주선과의 거리를 계산한다.
+                    var dis = pythagoras(e.x, e.y, m.x, m.y);
+                    
+                    // 4. 충분한 거리 이내로 들어왔다면 충돌한 것으로 간주한다
+                    if (dis <= 40) {
+                        // 콘솔에 메세지 출력
+                        console.log("쾅!")
+                        // e.y -=20;
+                        e.x = -100;
+                        m.x = -400;
+                    }
+                }
+            }
+            // 5. 다음 미사일을 꺼내서 검사한다.
+            // 6. 모든 미사일 반복해서 검사
+        }
+        //------------------------------------------------------------------
+
+    </script>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="600" height="800"></canvas>
+</body>
+
+</html>
