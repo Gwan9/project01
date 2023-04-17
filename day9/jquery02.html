@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery02.html</title>
+    <script src="../js/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //리소스 적게 먹는 법
+            var $jDiv = $("#div2"); //$는 jquery 표시 (안써도 됨)
+            // $("#div2").css("background", "blue").css("width", "150px").css("height", "150px");
+            $jDiv.css("background", "blue").css("width", "150px").css("height", "150px");
+
+            // JSON ==> {속성 : 값 , 속성 : 값, ...}
+            $("#container").css({
+                "background":"pink",
+                "width":"300px",
+                "height":"300px"
+            });
+
+            // id가 div2인 엘리먼트의 width 속성의 값 가져오기
+            console.log($("#div2").css("width"));
+
+
+            
+
+        })
+        
+    </script>
+
+
+</head>
+<body>
+    <!-- 배경은 블루 너비 150px 높이 150px -->
+    <div id="div2"></div>
+    <!-- 배경은 핑크 너비 300px 높이 300px -->
+    <div id="container"></div>
+</body>
+</html>
