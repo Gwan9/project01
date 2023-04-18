@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery05.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        // window.onload=function(){
+        //     var btn = document.getElementById("btn");
+        //     btn.onclick=prt;
+        // }
+        // function prt(){
+        //     var txt = document.getElementById("txt").value
+        //     console.log(txt);
+        // }
+
+        $(function(){
+
+            
+            // $("#btn").on("이벤트명", 함수명);
+            $("#btn").on("click", function(){
+
+                // 1. Jquery로 콘솔에 텍스트 띄우기
+
+                console.log("jquery test")
+                // $("#txt").val() --> val : value
+                console.log($("#txt").val());
+
+                
+                // 2. Jquery로 div에 텍스트 띄우기
+
+                // id 가 div1인 엘리먼트에 봄비 내리는 종로3가 h1태그로
+                var div1 = document.getElementById("div1")
+                // div1.innerText="봄비 내리는 종로3가";
+                // div1.innerHTML="<h1>봄비 내리는 종로3가</h1>"
+
+                
+                // $("#div1").text("봄비 내리는 종로3가");
+                // $("#div1").html("<h1>봄비 내리는 종로3가</h1>");
+                
+                // 3.  Jquery로 화면에 내가 입력현 값 출력
+                // 화면에 내가 입력한 값을 h2태그로 div1에 출력
+                // var msg = "<h2>"+$("#txt").val()+"</h2>"
+                // $("#div1").html(msg);
+
+                $("#div1").html("<h2>"+$("#txt").val()+"</h2>");
+
+
+            })
+        })
+    </script>
+
+</head>
+<body>
+    <!-- 버튼을 누르면 콘솔에 간단한 메세지 출력하게하기 (함수명 : prt()) -->
+    <!-- id:txt 엘리먼트의 값을 콘솔에 출력 -->
+    <input type="text" name="" id="txt">
+    <input type="button" value="출력" id="btn" onclick="prt();">
+    <div id="div1"></div>
+</body>
+</html>
