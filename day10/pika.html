@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pika.html</title>
+    <style>
+        canvas{background-color: #aaaaaa;}
+        *{margin:0;padding: 0;}
+    </style>
+    <script>
+        // 메인 배경
+        var bg = new Image();
+        bg.src = "../images/pika/bg.jpg";
+        // 구름
+        var clouds1 = new Image();
+        clouds1.src = "../images/pika/clouds.jpg";
+        var clouds2 = new Image();
+        clouds2.src = "../images/pika/clouds.jpg";
+
+        var p1 = new Image();
+        p1.src = "../images/pika/p1.png";
+        var p2 = new Image();
+        p2.src = "../images/pika/p2.png";
+        var p3 = new Image();
+        p3.src = "../images/pika/p3.png";
+        var p4 = new Image();
+        p4.src = "../images/pika/p4.png";
+        var p5 = new Image();
+        p5.src = "../images/pika/p5.png";
+
+        var p11 = new Image();
+        p11.src = "../images/pika/p11.png";
+        var p22 = new Image();
+        p22.src = "../images/pika/p22.png";
+        var p33 = new Image();
+        p33.src = "../images/pika/p33.png";
+        var p44 = new Image();
+        p44.src = "../images/pika/p44.png";
+        var p55 = new Image();
+        p55.src = "../images/pika/p55.png";
+        
+
+        var canvas;
+        var ctx;
+
+        var cloud1X = 0;
+        var cloud2X = -800;
+        
+        var counter =0;
+        
+        window.onload = function(){
+
+            canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+
+            // drawScreen
+            window.setInterval(drawScreen, 50);
+            
+        }
+        function drawScreen(){
+
+            counter ++;
+            console.log(counter)
+
+            cloud1X += 20;
+            cloud2X += 20;
+            if(cloud1X <= 800){
+                cloud1X = 0;
+                cloud2X = -800;
+            }
+            if(cloud2X <= 0){
+                cloud1X = 0;
+                cloud2X = -800;
+            }
+            
+
+            // 메인 배경 drawImage
+            ctx.drawImage(bg,0,0,800,600);
+            // 구름 배경 drawImage
+            ctx.drawImage(clouds1,cloud1X,0,800,164)
+            ctx.drawImage(clouds2,cloud2X,0,800,164)
+
+
+            //p1~p5 피카츄 drawImage
+            if(counter % 5 == 1)
+            ctx.drawImage(p1,0,500,60,60);
+            if(counter % 5 == 2)
+            ctx.drawImage(p2,0,500,60,60);
+            if(counter % 5 == 3)
+            ctx.drawImage(p3,0,500,60,60);
+            if(counter % 5 == 4)
+            ctx.drawImage(p4,0,500,60,60);
+            if(counter % 5 == 0)
+            ctx.drawImage(p5,0,500,60,60);
+
+            //p11~p55 피카츄 drawImage
+            if(counter % 5 == 1)
+            ctx.drawImage(p11,740,500,60,60);
+            if(counter % 5 == 2)
+            ctx.drawImage(p22,740,500,60,60);
+            if(counter % 5 == 3)
+            ctx.drawImage(p33,740,500,60,60);
+            if(counter % 5 == 4)
+            ctx.drawImage(p44,740,500,60,60);
+            if(counter % 5 == 0)
+            ctx.drawImage(p55,740,500,60,60);
+
+            
+        }
+        
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+</body>
+</html>

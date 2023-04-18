@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery07.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            // E[A] : a속성이 존재하는 요소만 선택
+            // E[A=V] : a속성의 값이 V인 요소만 선택
+            // E[A!=V] : a속성의 값이 V가 아닌 요소만 선택
+            
+            // emmet.io : css 선택자를 태그로 변환
+
+            //링크만 배경을 blue
+            $("a").css("background", "blue")
+            //네이버 링크만 배경을 red
+            // $("a[href='http://www.naver.com']").css("background", "red")
+            // $("a[href!='http://www.naver.com']").css("background", "red")
+
+            // a태그 중 target 속성이 존재하는 대상만 배경을 노랑색
+            $("a[target]").css("background", "yellow")
+
+        })
+    </script>a
+</head>
+<body>
+    <input type="text" value="hohoho">
+    <input type="text" name="" id="hahaha">
+    <p>Hello Web World</p>
+
+    <ol>
+        <li>아이폰14 pro</li>
+        <li>갤럭시 플립4</li>
+        <li>갤럭시 S23</li>
+        <li>LG폰</li>
+    </ol>
+    <!-- 네이버 링크 -->
+    <a href="http://www.naver.com">네이버</a>
+    <a href="http://www.daum.net">다음</a>
+    <!-- target : 링크를 새탭으로 -->
+    <a href="http://www.naver.com" target="_blank">네이버</a>
+    <a href="http://www.daum.net" target="_blank">다음</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q02.html</title>
+    <!-- Q02 더하기가  가능하도록 코드를 완성하세요 ( JQuery 사용)  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#btn").on("click", function(){
+                console.log("test")
+                var result = parseInt($("#num1").val()) * parseInt($("#num2").val());
+                console.log(result)
+                $("#result").val(result);
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="num1"> *
+    <input type="text" name="" id="num2">
+    <input type="button" value="=" id="btn">
+    <input type="text" name="" id="result">
+</body>
+</html>

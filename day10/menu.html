@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu.html</title>
+    <style>
+        img{width: 150px; height: 150px;}
+        div{
+            width: 300px; 
+            height: 200px;
+            display: inline-block;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        window.onload=function(){
+            var menu1 = document.getElementById("menu1")
+            var menu2 = document.getElementById("menu2")
+            var menu3 = document.getElementById("menu3")
+            var menu4 = document.getElementById("menu4")
+
+            menu1.onclick = selectMenu;
+            menu2.onclick = selectMenu;
+            menu3.onclick = selectMenu;
+            menu4.onclick = selectMenu;
+        }
+
+        function selectMenu(e){
+            console.log(e)
+            var ele = e.srcElement;
+            console.dir(ele.value)
+            var div = document.getElementById("div1")
+            div.innerHTML="<h4>"+ele.value+"입니다.</h4>"
+        }
+    </script>
+</head>
+<body>
+    <h2>오늘의 점심 메뉴</h2>
+    <div class="menuItem">
+        <img src="https://t1.daumcdn.net/news/202209/25/healthchosun/20220925120024206mtmp.jpg" alt="">
+        <p><input type="radio" name="menu" id="menu1" value="라면">라면</p>
+        </div>
+    <div class="menuItem">
+        <img src="https://src.hidoc.co.kr/image/lib/2022/6/22/1655877535611_0.jpg" alt="">
+        <p><input type="radio" name="menu" id="menu2" value="도시락">도시락</p>
+        </div>
+    <div class="menuItem">
+        <img src="https://recipe1.ezmember.co.kr/cache/recipe/2015/09/29/41cab0d7e7262c3847750c7c01815480.jpg" alt="">
+        <p><input type="radio" name="menu" id="menu3" value="짜장면">짜장면</p>
+        </div>
+    <div class="menuItem">
+        <img src="https://img-cf.kurly.com/shop/data/goodsview/20220711/gv00000336080_1.jpg" alt="">
+        <p><input type="radio" name="menu" id="menu4" value="짬뽕">짬뽕</p>
+        </div>
+    
+
+
+    <div id="div1"></div>
+</body>
+</html>

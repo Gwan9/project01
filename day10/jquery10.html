@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery10.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>img{width: 350px;height: 350px;}</style>
+    <script>
+        // 숨기기 나오게하기
+        // hide(지연시간(기본값 400), 완료 후 함수호출)
+        // show(지연시간, 완료 후 함수호출)
+
+        $(function(){
+            $("input[value='숨어']").on("click",function(){
+                $("img").hide(3000, function(){
+                    alert("완료");
+                });
+            })
+
+            // 3000동안 천천히 화면에 보이고 , 끝나면 이미지가 보임 이라는 메세지 경고창으로
+            $("input[value='나와']").on("click",function(){
+                $("img").show(3000, function(){
+                    alert("보임");
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="숨어">
+    <input type="button" value="나와">
+    
+    <img src="https://blog.kakaocdn.net/dn/Wy1cc/btq97nEFnVG/ke7m2EqZVuhjZosiW8q2Z1/img.jpg" alt="">
+</body>
+</html>

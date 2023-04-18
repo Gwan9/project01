@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery06.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+        // 1. 체이닝
+        // $("#img").css("width","300px").css("height", "300px")
+
+        // 2. JSON
+        $("#img").css({
+                "width":"300px",
+                "height":"300px"
+            });
+    </script>
+
+
+
+</head>
+<body>
+    <!-- 토끼의 너비 높이 300px 변경 , css(),
+    1. 체이닝방식 2. JSON -->
+    <img src="../images/rabbit1.png" alt="" id="img">
+</body>
+</html>

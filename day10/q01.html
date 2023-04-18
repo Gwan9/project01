@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q01.html</title>
+    <!-- 구구단 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            // $("#단출력").on("click", function(){
+            //     console.log("test")
+            //     var dan = $("#dan").val();
+            //     var result = $("#result").val();
+            //     for(var i=1;i<=9;i++){
+            //         result = (dan*i);
+            //         $("#result").append("<h2>" + dan+" * " + i + " = " +result +"</h2>");
+            //     }
+            // })
+
+
+            $("#btn").on("click", function(){
+                var txt = $("#txt").val();
+                var dan = parseInt(txt);
+
+                var msg = "";
+                for(var i=1;i<=9;i++){
+                    msg += "<h2>" + dan+" * " + i + " = " + dan*i +"</h2>";
+                }
+                
+                $("#div1").html(msg);
+            })
+
+
+        });
+    </script>
+</head>
+<body>
+    <!-- <input type="text" name="" id="dan"> -->
+    <input type="text" name="" id="txt">
+    <input type="button" value="단출력" id="btn">
+    <div id="div1"></div>
+
+</body>
+</html>

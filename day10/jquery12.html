@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery12.html</title>
+    <!-- 달력 -->
+    <style>
+        #wrapper{
+            width: 260px;
+            height: 300px;
+            background: skyblue;
+        }
+        .box{
+            float: left;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000000;
+            margin: 0 5px 5px 0;
+        }
+        /* 7의 배수번째 box 배경색을 red */
+        .box:nth-child(7n){
+            background: red;
+        }
+        .box:nth-child(n+22){
+            color: blue;
+        }
+        /* 1번부터 5번까지 box 배경색 초록 */
+        .box:nth-child(-n+5){
+            background: green;
+        }
+        /* 16~19번 사이 box 배경색 pink*/
+        .box:nth-child(n+16):nth-child(-n+19){
+            background: pink;
+        }
+        /* 25번째 배경 빨강*/
+        .box:nth-child(25){
+            background: red;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+        <div class="box">13</div>
+        <div class="box">14</div>
+        <div class="box">15</div>
+        <div class="box">16</div>
+        <div class="box">17</div>
+        <div class="box">18</div>
+        <div class="box">19</div>
+        <div class="box">20</div>
+        <div class="box">21</div>
+        <div class="box">22</div>
+        <div class="box">23</div>
+        <div class="box">24</div>
+        <div class="box">25</div>
+        <div class="box">26</div>
+        <div class="box">27</div>
+        <div class="box">28</div>
+        <div class="box">29</div>
+        <div class="box">30</div>
+    </div>
+</body>
+</html>

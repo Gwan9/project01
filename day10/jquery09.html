@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery09.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>img{ width: 150px ; height: 150px;}</style>
+    <script>
+        $(function(){
+            $("#btn4").on("click", function(){
+                console.log("jquery test")
+                $("#answer").show();
+                $("#wrong").hide();
+            })
+            $("#btn1,#btn2,#btn3").on("click", function(){
+                $("#wrong").show();
+                $("#answer").hide();
+            })
+            // 1번 버튼을 누르면 id가 wrong 인 영역을 보익 ㅔ설정
+
+        })
+        
+        
+    </script>
+</head>
+<body>
+    <input type="button" value="1번" id="btn1">
+    <input type="button" value="2번" id="btn2">
+    <input type="button" value="3번" id="btn3">
+    <input type="button" value="4번" id="btn4">
+
+    <div>조선 시대 장군, 명량, 거북선 하면 떠오르는 인물은?</div>
+    <div id="bb">
+        1. 권율 2. 뽀로로 3. 루피 4. 이순신
+    </div>
+    <div id="answer" style="display: none;">
+        <p>정답 : 4. 이순신</p>
+    </div>
+    <duv id="wrong" style="display: none;">
+        <img src="https://img.freepik.com/free-vector/woman-man-says-no-with-gesture-deny-expression-angry-grumpy-ban_10045-655.jpg?w=826&t=st=1681783858~exp=1681784458~hmac=b3bfc89f921c9b4459556f491134520bc93332476780873242444f6a8e8192ee" alt="">
+    </duv>
+</body>
+</html>

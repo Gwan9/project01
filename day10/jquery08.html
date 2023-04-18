@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery08.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#btn").on("click", function(){
+                console.log("test")
+                // 문자를 숫자로
+                // parseInt()
+                var num1 = parseInt($("#num1").val())
+                var num2 = parseInt($("#num2").val())
+
+                var result = num1 + num2;
+                console.log(result)
+                $("#result").val(result);   
+
+                // 한줄로
+                $("#result").val(parseInt($("#num1").val()))
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="num1">
+    +
+    <input type="text" name="" id="num2">
+    <input type="button" value="=" id="btn">
+    <input type="text" name="" id="result">
+</body>
+</html>

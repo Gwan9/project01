@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery11.html</title>
+    <!-- class 부여 제거, toggle -->
+    <style>
+        table{
+            table-layout: auto;
+            width: 75%;
+        }
+        td{
+            color: blue;
+            font-weight: bold;
+        }
+        .selectStyle{
+            color: red;
+            font-size: 50px;
+            background-color: green;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#btn1").on("click", function(){
+                // 첫번째 tr 태그에 selectStyle 클래스 부여
+                // $("tr:first").addClass("selectStyle");
+
+                // toggleClass() : 껐다, 켰다 둘다
+                $("tr:first").toggleClass("selectStyle");
+            });
+            $("#btn2").on("click", function(){
+                // 두번째 버튼을 누르면 첫번째 tr 태그에 selectStyle 클래스 제거 (removeClass())
+                $("tr:first").removeClass("selectStyle");
+            });
+            // 세번째 버튼을 누르면 배경을 핑크 (홀수번째)
+            $("#btn3").on("click",function(){
+                $("tr:odd").css("background-color", "pink");
+            });
+            // 네번째 버튼을 누르면 배경을 다크그레이 (짝수)
+            $("#btn4").on("click", function(){
+                $("tr:even").css("background-color", "darkgray");
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+    <input type="button" value="버튼3" id="btn3">
+    <input type="button" value="버튼4" id="btn4">
+
+    <table>
+        <tr>
+            <td>one</td>
+        </tr>
+        <tr>
+            <td>two</td>
+        </tr>
+        <tr>
+            <td>three</td>
+        </tr>
+        <tr>
+            <td>four</td>
+        </tr>
+        <tr>
+            <td>five</td>
+        </tr>
+    </table>
+</body>
+</html>

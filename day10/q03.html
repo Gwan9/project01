@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q03.html</title>
+    <!-- Q03. 라디오 버튼을 클릭하면 아래 div에 메세지가 출력되도록 자바스크립트로 구현하세요  -->
+    <style>
+        
+        div#title{
+            width: 500px;
+            height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid blue;
+        }
+        img{
+            
+            width: 120px;
+            height: 120px;
+        }
+        div#txt{
+            width: 500px;
+            height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid blue;
+        }
+        #도시락{
+            position:relative;
+            left: 100px;
+        }
+        #짜장면{
+            position:relative;
+            left: 200px;
+        }
+        #짬뽕{
+            position:relative;
+            left: 300px;
+        }
+
+        
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        // $(function(){
+        //     $("#라면").on("click",function(){
+        //         $("#select").html("선택하신 메뉴는 라면입니다.")
+        //     })
+        //     $("#도시락").on("click",function(){
+        //         $("#select").html("선택하신 메뉴는 도시락입니다.")
+        //     })
+        //     $("#자장면").on("click",function(){
+        //         $("#select").html("선택하신 메뉴는 자장면입니다.")
+        //     })
+        //     $("#짬뽕").on("click",function(){
+        //         $("#select").html("선택하신 메뉴는 짬뽕입니다.")
+        //     })
+        // })
+
+
+        window.onload =function(){
+            
+            var result = document.getElementById("txt").value
+
+        }
+        function r(){
+            var select1 =  document.getElementById("라면").id
+            result = select1;
+            var txt = document.getElementById("txt");
+            txt.innerHTML = "선택하신 메뉴는 "+result+"입니다."
+        }
+        function d(){
+            var select2 =  document.getElementById("도시락").id
+            result = select2;
+            var txt = document.getElementById("txt");
+            txt.innerHTML = "선택하신 메뉴는 "+result+"입니다."
+        }
+        function j(){
+            var select3 =  document.getElementById("짜장면").id
+            result = select3;
+            var txt = document.getElementById("txt");
+            txt.innerHTML = "선택하신 메뉴는 "+result+"입니다."
+        }
+        function jj(){
+            var select4 =  document.getElementById("짬뽕").id
+            result = select4;
+            var txt = document.getElementById("txt");
+            txt.innerHTML = "선택하신 메뉴는 "+result+"입니다."
+        }
+       
+    </script>
+</head>
+<body>
+    <div id="title">오늘의 점심메뉴</div>
+    <div id="menu">
+        <img src="https://t1.daumcdn.net/news/202209/25/healthchosun/20220925120024206mtmp.jpg" alt="">
+        <img src="https://src.hidoc.co.kr/image/lib/2022/6/22/1655877535611_0.jpg" alt="">
+        <img src="https://recipe1.ezmember.co.kr/cache/recipe/2015/09/29/41cab0d7e7262c3847750c7c01815480.jpg" alt="">
+        <img src="https://img-cf.kurly.com/shop/data/goodsview/20220711/gv00000336080_1.jpg" alt="">
+    </div>
+    <div>
+        <input type="radio" name="selectM" id="라면" onclick="r()">
+        <input type="radio" name="selectM" id="도시락" onclick="d()">
+        <input type="radio" name="selectM" id="짜장면" onclick="j()">
+        <input type="radio" name="selectM" id="짬뽕" onclick="jj()">
+    </div>
+
+    <div id="txt"></div>
+
+</body>
+</html>
