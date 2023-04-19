@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery19.html</title>
+    <style>
+        
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        var counter = 0;
+        $(function(){
+            $("#btn1").on("click",moveImage);
+
+
+        })
+        function moveImage(){
+            // 함수가 호출될 때 마다 이미지의 marginLeft를 점점 증가
+            $("img").css("margin-left",counter*10 +"px")
+            counter ++;
+            if(counter % 2 == 1){
+                $("img").attr("src", "../images/rabbit2.png")
+                
+            }
+            else {
+                $("img").attr("src", "../images/rabbit1.png")
+            }
+        }
+    
+    
+    
+    </script>
+</head>
+<body>
+    <!-- 버튼을 클릭하면 토끼이미지 교체해서 출력
+    rabbit1.png, rabbit2.png -->
+    <input type="button" value="btn1" id="btn1">
+
+    <div id="box1">토끼이미지</div>
+
+    <div><img src="../images/rabbit1.png" alt="" id="img"></div>
+    
+</body>
+</html>

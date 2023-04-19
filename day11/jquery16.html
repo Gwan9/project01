@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery16.html</title>
+    <style>
+        /* body>div:nth-child(1)>span{
+            background: green;
+        } */
+        /*  input 태그와 형제관계에 있는 span */
+        /* input+span{
+            color: red;
+        } */
+
+        /* input:checked 태그와 형제관계에 있는 span*/
+        /* input:checked+span{
+            color: blue;
+        } */
+
+        /* 체크 안돼있을 때 span 색 변경*/
+        input:not(:checked)+span{
+            color: yellowgreen;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#btn1").on("click", function(){
+                // console.log("test")
+                // 체크 안된 애 = "input:not(:checked)+span"
+                $("input:not(:checked)+span").css("background", "red")
+            })
+        })
+    </script>
+</head>
+<body>
+    <div><input type="checkbox" name="fruit" id="" checked="checked">
+    <span>오렌지</span>
+    </div>
+    <div><input type="checkbox" name="fruit" id="">
+    <span>바나나</span>
+    </div>
+    <div><input type="checkbox" name="fruit" id="">
+    <span>사과</span>
+    </div>
+    <span>오늘은 수요일</span>
+    <br>
+    <!-- 버튼을 클릭하면 체크 안한 항목의 span의 배경색을 red로 변경 -->
+    <input type="button" value="검사" id="btn1">
+</body>
+</html>

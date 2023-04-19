@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery13.html</title>
+    <style>
+        /* :nth-child(): n번째 자손:
+        특정 순서에 있는 요소를 선택할 때 사용하는 선택자*/
+
+        .test:nth-child(3){
+            color: blue;
+        }
+        td:nth-child(2){
+            background-color: red;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#btn1").on("click", function(){
+                console.log("jqeury test");
+                // table에 "test"클래스 추가
+                $("td").addClass("test")
+            })
+            // 방금 추가한 클래스를 제거
+            $("#btn2").on("click", function(){
+                $("table").removeClass("test");
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="2번째행에 test 클래스를 부여하기" id="btn1">
+    <input type="button" value="2번째행에 test 클래스를 부여하기" id="btn2">
+    <table class="tbl">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery14.html</title>
+    <style>
+        table {
+            table-layout: auto;
+            width: 75%;
+        }
+        td {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        // 첫번째 버튼을 누르면 모든 행의 배경색을 gray 지정
+        $(function(){
+            $("#btn1").on("click", function(){
+                // console.log("test")
+               $("tr:eq(0)").css("background","gray");
+               // eq : equal
+            })
+        })
+        // 두번째 버튼을 누르면 0번째 행의 배경색을 pink로 지정
+        $(function(){
+            $("#btn2").on("click", function(){
+                // console.log("test")
+               $("tr:eq(0)").css("background","pink");
+            })
+        })
+        // 세번째 버튼을 누르면 0, 1, 2, 3번째 행의 배경색을 red 지정
+        $(function(){
+            $("#btn3").on("click", function(){
+                //lt(4) : less than 4  4보다 작은
+                $("tr:lt(4)").css("background","red");
+            })
+        })
+        // 네번째 버튼을 누르면 3, 4번째 행의 배경 초록색 지정
+        $(function(){
+            $("#btn4").on("click", function(){
+                // gt(2) : great than 2보다 큰  
+                $("tr:gt(2)").css("background","green");
+            })
+        })
+        
+   
+   
+   </script>
+</head>
+<body>
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+    <input type="button" value="버튼3" id="btn3">
+    <input type="button" value="버튼4" id="btn4">
+
+    <table>
+        <tr class="testClass">
+            <td>one</td>
+        </tr>
+        <tr class="testClass">
+            <td>two</td>
+        </tr>
+        <tr class="testClass">
+            <td>three</td>
+        </tr>
+        <tr class="testClass">
+            <td>four</td>
+        </tr>
+        <tr class="testClass">
+            <td>five</td>
+        </tr>
+    </table>
+</body>
+</html>

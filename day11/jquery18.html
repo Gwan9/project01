@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery18.html</title>
+    <style>
+        img{width: 350px; height: 350px;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        // 상영영화보기 버튼을 누르면 div topNews1에 영화목록 출력
+        // 영화 10편
+        var movies = [
+            "1. 스즈메의 문단속",
+            "2. 던전앤드래곤 : 도적들의 명예",
+            "3. 슬램덩크 : 더 퍼스트 슬램덩크",
+            "4. 웅남이",
+            "5. 리바운드",
+            "6. 소울메이트",
+            "7. 오토라는남자",
+            "8. 파벨만스",
+            "9. 라이스보이슬립스",
+            "10. 천마행공",
+        ]
+
+        var postList = [
+            "../images/movie_image1.jpg",
+            "../images/movie_image2.jpg",
+            "../images/movie_image3.jpg",
+            "../images/movie_image4.jpg",
+            "../images/movie_image5.jpg",
+            "../images/movie_image6.jpg",
+            "../images/movie_image7.jpg",
+            "../images/movie_image8.jpg",
+            "../images/movie_image9.jpg",
+            "../images/movie_image10.jpg",
+        ]
+
+        
+        var idx = 0;
+        var timer;
+
+        $(function(){
+            $("input[value=상영영화보기]").on("click", startMovies);
+            $("input[value=상영영화중지]").on("click", stopMovies);
+        })
+
+        function startMovies(){
+            console.log("상영영화보기");
+            timer = window.setInterval(showMovies,1000);
+        }
+        
+        function showMovies(){
+            $("#topNews1").html("<h2>"+movies[idx++]+"</h2>")
+            // $("img").attr("src","../images/movie_image"+[idx]+".jpg");
+            // attr : 요소(element)의 속성(attribute)의 값을 가져오거나 속성을 추가
+            // src 에 moviesSrc[idx] 속성 추가
+            idx--
+            $("img").attr("src", postList[idx])
+                    .attr("alt", movies[idx++]);
+            
+            if(idx==movies.length)idx=0;
+            
+        }
+        function stopMovies(){
+            console.log("상영영화중지");
+            window.clearInterval(timer);
+        }
+        
+
+
+
+    </script>
+</head>
+<body>
+    <div id="topNews1"></div>
+    <div id="topNews2"></div>
+    <img src="" alt="">
+    <input type="button" value="상영영화보기">
+    <input type="button" value="상영영화중지">
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery20.html</title>
+    <style>
+        #content{
+            width: 1000px;
+            height: 600px;
+            background: pink;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        #movie{
+            width: 200px;
+            height: 300px;
+            border: 1px solid red;
+            background: #ffffff;
+            position: absolute;
+            left: 50px;
+            top: 180px;
+            padding: 30px;
+            background: #ffffff;
+        }
+        img{
+            width: 180px;
+            height: 280px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function hidediv(){
+            $("#movie").hide();
+
+        }
+        function showdiv(){
+            $("#movie").show();
+        }
+
+    </script>
+</head>
+<body>
+    <div id="movie">
+        <div><a href="javascript:hidediv()">닫기</a></div>
+        <img src="../images/movie_image1.jpg" alt="">
+    </div>
+
+    <div id="content">
+        <p>저희 영화관은 멀티플렉스 극장이지만 사실 1개의 영화만 상영합니다.</p>
+        <a href="javascript:showdiv()">영화정보보기</a>
+    </div>
+</body>
+</html>

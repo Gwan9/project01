@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery17.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+        var news = [
+            "1. 대졸자 100% 취업",
+            "2. 신입사원 어느회사를 골라 갈지 고민중",
+            "3. 5시 칼 퇴근법",
+            "4. 주 4일 근무 법제화",
+        ]
+
+        $(function(){
+            $("input[value=뉴스보기]").on("click", startNew)
+            $("input[value=뉴스중지]").on("click", stopNews)
+
+            
+        })
+
+        var timer;
+        function startNew(){
+            console.log("뉴스보기함수");
+            // 1초 간격으로 showNews 라는 함수를 호출
+            timer = window.setInterval(showNews,1000);
+            console.log(timer);
+            
+        }
+        var idx = 0;
+        function showNews(){
+            
+            $("#topNews").html("<h2>"+news[idx++]+"</h2>")
+            
+            // 인덱스가 정렬 끝에 가면 0으로 돌려서 무한반복
+            if(idx == news.length)idx=0;
+        }
+        function stopNews(){
+            window.clearInterval(timer);
+        }
+
+        
+    </script>
+</head>
+<body>
+    <div id="topNews"></div>
+    <input type="button" value="뉴스보기">
+    <input type="button" value="뉴스중지">
+</body>
+</html>

@@ -41,6 +41,16 @@
         var p55 = new Image();
         p55.src = "../images/pika/p55.png";
         
+        var ball1 = new Image();
+        ball1.src = "../images/pika/ball1.png";
+        var ball2 = new Image();
+        ball2.src = "../images/pika/ball2.png";
+        var ball3 = new Image();
+        ball3.src = "../images/pika/ball3.png";
+        var ball4 = new Image();
+        ball4.src = "../images/pika/ball4.png";
+        var ball5 = new Image();
+        ball5.src = "../images/pika/ball5.png";
 
         var canvas;
         var ctx;
@@ -49,21 +59,57 @@
         var cloud2X = -800;
         
         var counter =0;
+
+        // 왼쪽 피카츄 Y 객체
+        var pikaY = 0;
+        // 오른쪽 피카츄 Y
+        var pika2Y = 0;
+
+        // ball 배열
+        var ballArray = [];
+        var ballX = 0;
+        var ballY = 0;
+
+        var bX= 0;
+
+        var temp = false;
+        var counter2 = 0;
         
         window.onload = function(){
 
             canvas = document.getElementById("myCanvas");
             ctx = canvas.getContext("2d");
-
+            
+            canvas.onmousemove=movePika
+            canvas.onmousedown=moveBall;
+            
             // drawScreen
             window.setInterval(drawScreen, 50);
+            window.setInterval(movePika2, 50);
             
         }
         function drawScreen(){
 
             counter ++;
-            console.log(counter)
+            counter2 ++;
+            // 피카츄2 움직임
+            if(temp == true && counter < 30){
+                console.log(counter2)
+                pika2Y -= 20;
+            }else if(temp == true && counter2 <60){
+                pika2Y += 20;
+            }else if(counter>= 60){
+                counter2 = 0;
+                pika2Y = 500
+                temp = false;
+            }
 
+            // console.log(counter)
+            for(var i=0;i<ballArray.length;i++){
+                var b = ballArray[i]
+                b.x += 10;
+
+            }
             cloud1X += 20;
             cloud2X += 20;
             if(cloud1X <= 800){
@@ -74,7 +120,6 @@
                 cloud1X = 0;
                 cloud2X = -800;
             }
-            
 
             // 메인 배경 drawImage
             ctx.drawImage(bg,0,0,800,600);
@@ -85,31 +130,80 @@
 
             //p1~p5 피카츄 drawImage
             if(counter % 5 == 1)
-            ctx.drawImage(p1,0,500,60,60);
+            ctx.drawImage(p1,0,pikaY,60,60);
             if(counter % 5 == 2)
-            ctx.drawImage(p2,0,500,60,60);
+            ctx.drawImage(p2,0,pikaY,60,60);
             if(counter % 5 == 3)
-            ctx.drawImage(p3,0,500,60,60);
+            ctx.drawImage(p3,0,pikaY,60,60);
             if(counter % 5 == 4)
-            ctx.drawImage(p4,0,500,60,60);
+            ctx.drawImage(p4,0,pikaY,60,60);
             if(counter % 5 == 0)
-            ctx.drawImage(p5,0,500,60,60);
+            ctx.drawImage(p5,0,pikaY,60,60);
 
+            
             //p11~p55 피카츄 drawImage
             if(counter % 5 == 1)
-            ctx.drawImage(p11,740,500,60,60);
+            ctx.drawImage(p11,740,pika2Y,60,60);
             if(counter % 5 == 2)
-            ctx.drawImage(p22,740,500,60,60);
+            ctx.drawImage(p22,740,pika2Y,60,60);
             if(counter % 5 == 3)
-            ctx.drawImage(p33,740,500,60,60);
+            ctx.drawImage(p33,740,pika2Y,60,60);
             if(counter % 5 == 4)
-            ctx.drawImage(p44,740,500,60,60);
+            ctx.drawImage(p44,740,pika2Y,60,60);
             if(counter % 5 == 0)
-            ctx.drawImage(p55,740,500,60,60);
+            ctx.drawImage(p55,740,pika2Y,60,60);
 
+            //ball1~ball5 drawImage
+            for(var i=0;i<ballArray.length;i++){
+                var b = ballArray[i];
+
+                if(counter % 5 == 1)
+                ctx.drawImage(ball1,b.x,b.y,40,40);
+                if(counter % 5 == 2)
+                ctx.drawImage(ball2,b.x,b.y,40,40);
+                if(counter % 5 == 3)
+                ctx.drawImage(ball3,b.x,b.y,40,40);
+                if(counter % 5 == 4)
+                ctx.drawImage(ball4,b.x,b.y,40,40);
+                if(counter % 5 == 0)
+                ctx.drawImage(ball5,b.x,b.y,40,40);
+
+                if(b.y >900)ballArray.shift();
             
         }
         
+            
+        }
+        
+
+
+//-----------------------------------------------------------------
+        // 마우스 움직임 함수 
+        function movePika(e){
+            pikaY = e.pageY;
+            console.log(pikaY)
+        }
+        function moveBall(e){
+
+            bX = 0;
+            
+            bY = e.pageY
+            
+            var b = {
+                x: bX,
+                y: bY
+            };
+
+
+            ballArray.push(b);
+
+
+        }
+        function movePika2(){
+            if(temp == true) return
+            temp = true;
+            counter2 = 0
+        }
     </script>
 </head>
 <body>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery21.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            // 1번 버튼을 누르면 이미지가 숨기기 0.3초
+            $("#btn1").on("click", function(){
+                $("img").hide(300)
+            })
+            // 2번 버튼을 누르면 이미지가 나타남 0.3초
+            $("#btn2").on("click", function(){
+                $("img").show(300)
+            })
+            // 3번 버튼을 누르면 이미지 토글 0.3초
+            $("#btn3").on("click", function(){
+                $("img").toggle(300)
+            })
+            // 4번 버튼을 누르면 이미지 페이드인 : 나타나게
+            $("#btn4").on("click", function(){
+                $("img").fadeIn({
+                    // JSON
+                    duration:3000,
+                    complete: function(){
+                        alert("이미지가 나타남");
+                    }
+                })
+            })
+            // 5번 버튼을 누르면 이미지 페이드아웃 : 흐려지게
+            $("#btn5").on("click", function(){
+                $("img").fadeOut(2000, function(){
+                    alert("뿅")
+                })
+            })
+            // $("#btn6").on("click", function(){
+                //     $("img").fadeToggle(2000)
+                // })
+                
+                // 6번 버튼을 누르면 Hello World 출력
+            $("#btn6").on("click", function(){
+                $("#p1").html("Hello World")
+                        .css("background", "pink")
+                        .addClass("txt")
+                        // 뒤에 자식으로 추가
+                        .appendTo(".wrapper")
+                })
+                // 7번 버튼을 클릭하면
+                $("#btn7").on("click", function(){
+                    // 1. 토끼가 오른쪽으로 200px 이동
+                    $("img").css("margin-left", "200px")
+                    // 2. 3초동안 페이드 아웃
+                    .fadeOut(3000, function(){
+                        // 3. 구글 사이트로 이동
+                        location.href="https://www.google.co.kr";
+                        })
+                        
+            })
+
+
+
+
+        })
+
+
+        
+    </script>
+</head>
+<body>
+    <input type="button" value="숨기기" id="btn1">
+    <input type="button" value="나타나기" id="btn2">
+    <input type="button" value="토글" id="btn3">
+    <input type="button" value="fadeIn" id="btn4">
+    <input type="button" value="fadeOut" id="btn5">
+    <input type="button" value="메세지출력" id="btn6">
+    <input type="button" value="토끼이동후사이트전환" id="btn7">
+
+    <div class="wrapper">
+        <p>test</p>
+    </div>
+
+    <div><img src="../images/rabbit1.png" alt=""></div>
+
+    <p id="p1"></p>
+</body>
+</html>
