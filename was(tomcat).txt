@@ -1,0 +1,29 @@
+1. tomcat 다운
+2. D:\dev
+3. 압축풀기
+4. 이름변경 tomcat9
+5. 명령프롬프트에서 startup.bat 실행
+
+6. 환경변수 새로 추가
+
+자바 설치경로
+변수이름  JAVA_HOME
+변수 값  C:\Program Files\Java\jdk1.8.0_361
+
+톰캣 설치경로
+변수이름  CATARINA_HOME
+변수 값  D:\dev\tomcat9
+
+명령프롬프트 다시 열고  "D:\dev\tomcat9\bin\startup.bat"
+
+크롬창에 localhost:8080
+
+D:\dev\tomcat9\conf 경로에서 server.xml 을 메모장에 드래그드랍
+찾기 8080 두번째
+"1000" 옆에 URIEncoding="UTF-8" 입력 -> 한글깨지는거 방지 :
+
+7. 실행
+"D:\dev\tomcat9\bin\startup.bat"
+
+8.확인
+http://localhost:8080 
